@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>案例1.3-多级导航菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #menu .main-menu{
+            width: 120px;
+            height: 30px;
+            background: gray;
+            float: left;
+            margin-right: 5px;
+        }
+        #menu .main-menu a{
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+        }
+        #menu .sub-menu{
+            background: #eee;
+            display: none;
+        }
+        #menu .sub-menu li{
+            border-bottom: 1px dashed #333;
+        }
+        #menu .sub-menu a{
+            text-align: left;
+            text-indent: 10px;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <a href="#">link 1</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#">link 2</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#">link 3</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
