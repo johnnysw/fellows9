@@ -43,31 +43,50 @@
     </style>
 </head>
 <body>
-<ul id="menu">
-    <li class="main-menu">
-        <a href="#">link 1</a>
-        <ul class="sub-menu">
-            <li><a href="#">sublink 1</a></li>
-            <li><a href="#">sublink 2</a></li>
-            <li><a href="#">sublink 3</a></li>
-        </ul>
-    </li>
-    <li class="main-menu">
-        <a href="#">link 2</a>
-        <ul class="sub-menu">
-            <li><a href="#">sublink 1</a></li>
-            <li><a href="#">sublink 2</a></li>
-            <li><a href="#">sublink 3</a></li>
-        </ul>
-    </li>
-    <li class="main-menu">
-        <a href="#">link 3</a>
-        <ul class="sub-menu">
-            <li><a href="#">sublink 1</a></li>
-            <li><a href="#">sublink 2</a></li>
-            <li><a href="#">sublink 3</a></li>
-        </ul>
-    </li>
-</ul>
+    <ul id="menu">
+        <li class="main-menu">
+            <a href="#">link 1</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#">link 2</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="#">link 3</a>
+            <ul class="sub-menu">
+                <li><a href="#">sublink 1</a></li>
+                <li><a href="#">sublink 2</a></li>
+                <li><a href="#">sublink 3</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <script>
+        var oMenu = document.getElementById('menu');
+        var aMainMenu = oMenu.getElementsByTagName('li');
+//        oMenu.getElementsByClassName('main-menu')//IE8及以下不支持
+        for(var i=0; i<aMainMenu.length; i++){
+            if(  aMainMenu[i].className == 'main-menu'  ){
+                aMainMenu[i].onmouseover = function(){
+                    var oSubMenu = this.getElementsByTagName('ul')[0];
+                    oSubMenu.style.display = 'block';
+                };
+                aMainMenu[i].onmouseout = function(){
+                    var oSubMenu = this.getElementsByTagName('ul')[0];
+                    oSubMenu.style.display = 'none';
+                };
+            }
+        }
+    </script>
 </body>
 </html>
