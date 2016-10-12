@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>案例1.4-折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #menu{
+            width: 300px;
+            border: 1px solid #000;
+        }
+        #menu h3{
+            height: 30px;
+            background: #000;
+            color: #fff;
+        }
+        #menu .sub-menu{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li><a href="#">001</a></li>
+            <li><a href="#">002</a></li>
+            <li><a href="#">003</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        if(aLi[i].className == 'main-menu'){
+            aLi[i].onclick = function(){
+                var oSubMenu = this.getElementsByTagName('ul')[0];
+                if(oSubMenu.style.display == 'block'){
+                    oSubMenu.style.display = 'none';
+                }else{
+                    oSubMenu.style.display = 'block';
+                }
+            };
+        }
+    }
+</script>
+</body>
+</html>
