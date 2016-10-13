@@ -97,7 +97,7 @@
             aLi[i].onmouseover = function(){
 
                 changeImg( this.index );
-
+                iNow = this.index;
             }
         }
 
@@ -122,7 +122,11 @@
         }
         oPrev.onclick = function(){
 
-
+            iNow--;
+            if(iNow == -1){
+                iNow = aImg.length-1;
+            }
+            changeImg( iNow );
         }
 
     </script>
