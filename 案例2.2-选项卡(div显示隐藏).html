@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例2.2-选项卡（div显示隐藏）</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+
+        #container{
+            width: 400px;
+            height: 200px;
+
+            margin: 50px auto;
+
+        }
+        #nav{
+            height: 30px;
+        }
+
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            margin-right: 10px;
+            background: #ccc;
+            text-align: center;
+            line-height: 30px;
+        }
+        #content{
+            background: #ccc;
+            height: 170px;
+            border-top: 1px solid #000;
+        }
+
+        #nav li.selected{
+            background: #000;
+            color: #fff;
+        }
+
+        #content div{
+            display: none;
+        }
+
+        #content div.selected{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id='container'>
+
+    <ul id='nav'>
+        <li class='selected'>js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id='content'>
+        <div class='selected'>1111111</div>
+        <div>2222222</div>
+        <div>3333333</div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var oContent = document.getElementById('content');
+    var oNav = document.getElementById('nav');
+    var aLi = oNav.getElementsByTagName('li');
+    var aDiv = oContent.getElementsByTagName('div');
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className = '';
+                aDiv[i].className = '';
+            }
+            this.className = 'selected';
+            aDiv[this.index].className = 'selected';
+        }
+    }
+
+</script>
+
+</body>
+</html>
