@@ -4,21 +4,64 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: #00ff00;
+            /*position: relative;*/
+            /*top: 100px;*/
+            /*left: 100px;*/
+        }
         #div1{
             width: 200px;
             height: 200px;
             background: #ff0000;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="div1"></div>
+    <div id="div2">
+        <div id="div1"></div>
+    </div>
     <script>
         var oDiv = document.getElementById("div1");
 //        alert(getComputedStyle(oDiv, null).width);
-        alert(oDiv.currentStyle.width);
+//        alert(oDiv.currentStyle.width);
+
+//        alert(getStyle(oDiv, 'width'));
+//        alert(oDiv.offsetWidth);
+//        console.log(oDiv.offsetParent);
+        console.log(oDiv.offsetTop);
 
 
+        /*
+        * offsetWidth
+        * offsetHeight
+        * offsetTop
+        * offsetLeft
+        * offsetParent
+        * */
+
+
+
+
+
+
+
+        function getStyle(elem, prop){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(elem, null)[prop];
+            }else if(elem.currentStyle){
+                return elem.currentStyle[prop];
+            }
+        }
     </script>
 </body>
 </html>

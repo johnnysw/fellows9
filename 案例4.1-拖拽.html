@@ -13,6 +13,7 @@
             height: 200px;
             background: #ff0000;
             cursor: pointer;
+            position: absolute;
         }
     </style>
 </head>
@@ -21,12 +22,18 @@
     <script>
         var oDrag = document.getElementById("drag");
         oDrag.onmousedown = function(e){
-//            e = e || window.event;
-//            alert(e.clientX + ',' + e.clientY);
-            var target = e.target || window.event.srcElement;
-
+            e = e || window.event;
+            var iDisX = e.clientX - oDrag.offsetLeft,
+                iDisY = e.clientY - oDrag.offsetTop;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                oDrag.style.left = e.clientX - iDisX + "px";
+                oDrag.style.top = e.clientY - iDisY + "px";
+            };
+            oDrag.onmouseup = function() {
+                document.onmousemove = null;
+            }
         };
-
     </script>
 </body>
 </html>
