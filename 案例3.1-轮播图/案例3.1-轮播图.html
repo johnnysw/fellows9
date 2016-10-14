@@ -89,6 +89,7 @@
         var aImg = oContent.getElementsByTagName('img');
         var oNext = document.getElementById('next');
         var oPrev = document.getElementById('prev');
+        var oContainer = document.getElementById("container");
 
         var iNow = 0;//当前显示的图片的索引
 
@@ -128,6 +129,18 @@
             }
             changeImg( iNow );
         }
+
+        var timer = setInterval(function(){
+            oNext.onclick();
+        }, 500);
+        oContainer.onmouseover = function(){
+            clearInterval(timer);
+        };
+        oContainer.onmouseout = function(){
+            timer = setInterval(function(){
+                oNext.onclick();
+            }, 500);
+        };
 
     </script>
 
