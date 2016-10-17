@@ -18,6 +18,7 @@
     </style>
 </head>
 <body>
+    <h1>hhhhhhhhhhhhhhhhhhhhhhhh</h1>
     <div id="drag"></div>
     <script>
         var oDrag = document.getElementById("drag");
@@ -29,6 +30,7 @@
                 e = e || window.event;
                 oDrag.style.left = e.clientX - iDisX + "px";
                 oDrag.style.top = e.clientY - iDisY + "px";
+                return false;
             };
             oDrag.onmouseup = function() {
                 document.onmousemove = null;
