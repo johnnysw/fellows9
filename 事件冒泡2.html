@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="list">
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+        <li>06</li>
+        <li>07</li>
+        <li>08</li>
+        <li>09</li>
+        <li>10</li>
+    </ul>
+
+    <script>
+//        var aLi = document.getElementsByTagName("li");
+//        for(var i=0; i<aLi.length; i++){
+//            aLi[i].onclick = function(){
+//                alert(this.innerHTML);
+//            };
+//        }
+        var oList = document.getElementById("list");
+        oList.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            alert(target.innerHTML);
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

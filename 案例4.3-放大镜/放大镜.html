@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: 0;
+        }
+        #small-pic{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;
+        }
+        #small-pic img{
+            width: 400px;
+            height: 400px;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background: #cccccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: .5;
+            filter: alpha(opacity=50);
+            display: none;
+        }
+        #big-pic{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            float: left;
+            display: none;
+            position: relative;
+        }
+        #big-img{
+            position: absolute;
+        }
+        #mask{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="small-pic">
+        <div id="mask"></div>
+        <div id="drag"></div>
+        <img src="1.jpg" alt="">
+    </div>
+    <div id="big-pic">
+        <img src="2.jpg" alt="" id="big-img">
+    </div>
+    <script>
+        var oSmallPic = document.getElementById("small-pic"),
+                oDrag = document.getElementById("drag"),
+                oBigPic = document.getElementById("big-pic"),
+                oBigImg = document.getElementById("big-img"),
+                oMask = document.getElementById("mask");
+        oMask.onmouseover = function(){
+            oDrag.style.display = "block";
+            oBigPic.style.display = "block";
+        };
+        oMask.onmousemove = function(e){
+            e = e || window.event;
+            var iLeft = e.clientX - oDrag.offsetWidth / 2;
+            var iTop = e.clientY - oDrag.offsetHeight / 2;
+            if(iTop < 0){
+                iTop = 0;
+            }
+            if(iTop > oSmallPic.offsetHeight - oDrag.offsetHeight){
+                iTop = oSmallPic.offsetHeight - oDrag.offsetHeight;
+            }
+            if(iLeft < 0){
+                iLeft = 0;
+            }
+            if(iLeft > oSmallPic.offsetWidth - oDrag.offsetWidth){
+                iLeft = oSmallPic.offsetWidth - oDrag.offsetWidth;
+            }
+            oDrag.style.left = iLeft + "px";
+            oDrag.style.top = iTop + "px";
+
+            /*大图片定位*/
+            var fScaleX = iLeft / (oSmallPic.offsetWidth - oDrag.offsetWidth);
+            var fScaleY = iTop / (oSmallPic.offsetHeight - oDrag.offsetHeight);
+            oBigImg.style.top = -(oBigImg.offsetHeight - oBigPic.offsetHeight) * fScaleY + "px";
+            oBigImg.style.left = -(oBigImg.offsetWidth - oBigPic.offsetWidth) * fScaleX + "px";
+        };
+        oMask.onmouseout = function(){
+            oDrag.style.display = "none";
+            oBigPic.style.display = "none";
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
