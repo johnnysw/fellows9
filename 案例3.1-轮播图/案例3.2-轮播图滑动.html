@@ -90,8 +90,6 @@
 <script src="jslib.js"></script>
 <script>
 
-
-
     var oTab = document.getElementById('tab');
     var aLi = oTab.getElementsByTagName('li');
     var oContent = document.getElementById('content');
@@ -103,8 +101,6 @@
     var iNow = 0;//当前显示的图片的索引
 
     oContent.style.width = aImg.length * aImg[0].offsetWidth + 'px';
-    oContent.style.height = aImg[0].offsetHeight;
-
 
     for(var i=0;i<aLi.length; i++){ //i = 4
         aLi[i].index = i;
@@ -118,13 +114,9 @@
     function changeImg(idx){
         for(var i=0; i<aLi.length; i++){
             aLi[i].className = '';
-            //aImg[i].className = '';
         }
-        //elem.className = 'selected';
-        aLi[idx].className = 'selected';
-//        aImg[idx].className = 'selected';
 
-       // oContent.style.left = -idx * aImg[0].offsetWidth +'px';
+        aLi[idx].className = 'selected';
 
         animate(oContent,{left:-idx * aImg[0].offsetWidth});
     }
