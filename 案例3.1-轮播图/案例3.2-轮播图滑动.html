@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            margin:100px auto;
+            width: 680px;
+            height: 344px;
+            position: relative;
+            overflow: hidden;
+        }
+        #tab{
+            position:absolute;
+            right: 10px;
+            bottom:10px;
+            z-index: 1;
+        }
+        #tab li{
+            width: 20px;
+            height:20px;
+            background: #000;
+            color:#fff;
+            float: left;
+            margin-right: 5px;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #tab li.selected{
+            background: orange;
+        }
+
+
+        #content{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #content img{
+
+            float:left;
+        }
+        #arrow{
+            position: absolute;
+            left:10px;
+            bottom:10px;
+        }
+        #arrow span{
+            width:20px;
+            height: 20px;
+            background: #000;
+            color:#fff;
+            margin-left:5px;
+            float: left;
+            line-height: 20px;
+            text-align:center;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img class="selected" src="img/1.jpg"/>
+        <img src="img/2.jpg" />
+        <img src="img/3.jpg" />
+        <img src="img/4.jpg" />
+    </div>
+    <div id="arrow">
+        <span id="prev">   &lt;   </span>
+        <span id="next">   &gt;   </span>
+    </div>
+
+</div>
+<script src="jslib.js"></script>
+<script>
+
+
+
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName('img');
+    var oNext = document.getElementById('next');
+    var oPrev = document.getElementById('prev');
+    var oContainer = document.getElementById("container");
+
+    var iNow = 0;//当前显示的图片的索引
+
+    oContent.style.width = aImg.length * aImg[0].offsetWidth + 'px';
+    oContent.style.height = aImg[0].offsetHeight;
+
+
+    for(var i=0;i<aLi.length; i++){ //i = 4
+        aLi[i].index = i;
+        aLi[i].onmouseover = function(){
+
+            changeImg( this.index );
+            iNow = this.index;
+        }
+    }
+
+    function changeImg(idx){
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className = '';
+            //aImg[i].className = '';
+        }
+        //elem.className = 'selected';
+        aLi[idx].className = 'selected';
+//        aImg[idx].className = 'selected';
+
+       // oContent.style.left = -idx * aImg[0].offsetWidth +'px';
+
+        animate(oContent,{left:-idx * aImg[0].offsetWidth});
+    }
+
+
+    oNext.onclick = function(){
+        iNow++;
+        if(iNow == aImg.length){
+            iNow = 0;
+        }
+        changeImg( iNow );
+
+    }
+    oPrev.onclick = function(){
+
+        iNow--;
+        if(iNow == -1){
+            iNow = aImg.length-1;
+        }
+        changeImg( iNow );
+    }
+
+    var timer = setInterval(function(){
+        oNext.onclick();
+    }, 2000);
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function(){
+        timer = setInterval(function(){
+            oNext.onclick();
+        }, 2000);
+    };
+
+</script>
+
+</body>
+</html>
