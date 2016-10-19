@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>注册网易免费邮箱----中国第一大电子邮件服务商</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background:#F1F1F1;	
+	}
+	#page {
+		width: 958px;
+		margin: 0 auto;
+	}
+	#header {
+		height: 80px;
+		line-height: 80px;
+		/*background:#006666;*/
+	}
+	#header .logo img {
+		margin-top: 22px;
+	}
+	#header #slogan{
+		background-image: url(images/global2.png);
+		background-repeat: no-repeat;
+		width: 306px;
+		height: 33px;
+		display: inline-block;
+	}
+	#header .ext{
+		float: right;
+	}
+	a{
+		color: #1D50A2;
+    	text-decoration: none;
+	}
+	#main #title{
+		background: url(images/bgx.png) repeat-x 0 0;
+		height: 46px;
+		line-height: 46px;
+		position: relative;
+		z-index: 0;
+	}
+	#main #title .left_c{
+		background: url(images/global2.png) no-repeat -324px 0;	
+		/*display: inline-block;*/
+		float: left;
+		width: 42px;
+		height: 46px;
+	}
+	#main #title .right_c{
+		background: url(images/global2.png) no-repeat -366px 0;	
+		/*display: inline-block;*/
+		/*float: right;*/
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 4px;
+		height: 46px;
+	}
+	#main #title .info{
+		font-size: 14px;
+		color: #fff;
+		float: left;
+		height: 46px;
+		line-height: 46px;
+		padding-left: 20px;
+		
+	}
+	#main #title a{
+		float: right;	
+		color: #fff;
+		margin-right:4px;
+	}
+	#main #content{
+		height: 411px;
+		background: #fff;	
+		border: gainsboro 1px solid;
+		font-size: 14px;
+		border-width: 0 1px;
+		/*-moz-border-radius:0 0 7px 7px;
+		-webkit-border-radius:0 0 7px 7px;
+		border-radius:0 0 7px 7px;*/
+	}
+	#main #content table{
+		height: 100%;	
+	}
+	#main #content table th{
+		text-align: right;
+		font-size:14px;	
+	}
+
+	#main #bottom{
+		height: 8px;	
+	}
+	#main #content #regBtn{
+		background-image: url("images/global2.png");
+		background-position: 0 -179px;
+		background-repeat: no-repeat;
+		border: 0 none;
+		cursor: pointer;
+		height: 38px;
+		margin-top: 15px;
+		width: 104px;	
+	}
+	#main #bottom{
+		 background-image: url("images/bgx.png");
+		background-position: 0 -180px;
+		background-repeat: repeat-x;
+		height: 8px;
+		overflow: hidden;
+	}
+	#main #bottom .left_bottom_c{
+		background-image: url("images/global2.png");
+		background-position: -252px -144px;
+		background-repeat: no-repeat;
+		float: left;
+		height:8px;
+		width:9px;
+	}
+	#main #bottom .right_bottom_c{
+		background-image: url("images/global2.png");
+		background-position: -261px -144px;
+		background-repeat: no-repeat;
+		height: 8px;
+		width:9px;
+		float: right;
+	}
+	/*input[type='text'], input[type='password']{*/
+	.txt_ipt{
+		background-color: #FBFBFB;
+		background-image: url("images/bgx.png");
+		background-position: 0 -72px;
+		background-repeat: repeat-x;
+		border: 1px solid #C1C1C1;
+		padding: 4px;	
+	}
+	.err_tips {
+		background-color: #FBE2E2;
+		background-position: 0 -144px;
+		border-color: #D28C8C;
+		color: orange;
+	}
+</style>
+<script type="text/javascript">
+	function checkForm(){
+		var unameInp = document.getElementById("unameInp");//获得邮件地址的表单对象
+		var unameWarnning = document.getElementById("unameWarnning");
+		if(unameInp.value.length < 6 || unameInp.value.length > 18){
+			unameWarnning.innerHTML = "邮件地址必须在6-18个字符之内！";
+			unameInp.className += " err_tips";
+			return false;
+		}else if(!isNaN(unameInp.value.charAt(0)) || unameInp.value.charAt(unameInp.value.length-1) == "_"  || unameInp.value.charAt(0) == "_"){
+			unameWarnning.innerHTML = "邮件地址必须以字母开头，字母或数字结尾！";
+			return false;
+		}else{
+			var validChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+			for(i=0; i<unameInp.value.length; i++){				
+				if(validChars.indexOf(unameInp.value.charAt(i)) == -1){
+					unameWarnning.innerHTML = "邮件地址只能是字符、数字或者下划线&nbsp;！";
+					return false;
+				}
+			}	
+		}
+		
+		var passwInp = document.getElementById("passwInp");
+		var pwdWarnning = document.getElementById("pwdWarnning");
+		if(passwInp.value.length < 6 || passwInp.value.length > 16){
+			pwdWarnning.innerHTML = "密码必须在6-16个字符之内!";
+			passwInp.className += " err_tips";
+			return false;
+		}
+		
+		var passConfim = document.getElementById("passConfim");
+		var pwdConfirmWarnning = document.getElementById("pwdConfirmWarnning");
+		if(passConfim.value != passwInp.value){
+			pwdConfirmWarnning.innerHTML = "两次密码不一致!";
+			passConfim.className += " err_tips";
+			return false;
+		}
+		
+		var mobileInp = document.getElementById("mobileInp");
+		var mobileWarnning = document.getElementById("mobileWarnning");
+		if(mobileInp.value.length > 0){
+			if(mobileInp.value.length != 11){
+				mobileWarnning.innerHTML = "手机号码必须是11位!";
+				mobileInp.className += " err_tips";
+				return false;
+			}else if(isNaN(mobileInp.value)){
+				mobileWarnning.innerHTML = "手机号码只能是数字!";
+				mobileInp.className += " err_tips";
+				return false;
+			}else{
+				var flag = false;
+				var arr = ["138","139","130","131","186"];
+				var chkStr = mobileInp.value.substr(0,3);
+				for(i=0; i<arr.length; i++){
+					if(arr[i] == chkStr){
+						flag = true;
+						break;
+					}
+				}
+				if(!flag){
+					mobileWarnning.innerHTML = "手机号码必须在138,139,130,131,186之间";
+					mobileInp.className += " err_tips";
+					return false;
+				}
+					
+			}
+		}
+		
+		var serviceItemChek = document.getElementById("serviceItemChek");
+		if(!serviceItemChek.checked){
+			alert("必须同意！");
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</head>
+
+<body>
+<div id="page">
+  <div id="header">
+  	<a class="logo" href="#" target="_blank"><img src="images/logo.png" alt="网易"></a> 
+    <span id="slogan"></span>
+    <span class="ext"><a href="#">反馈意见</a>&nbsp;&nbsp;<a href="#">帮助</a></span>
+  </div>
+  <div id="main">
+  	<div id="title">
+    	<span class="left_c"></span>
+        <span class="info">欢迎注册网易免费邮！您可以选择注册163、126、yeah.net三大免费邮箱。</span>
+        <a href="#">了解详情»</a>
+        <span class="right_c"></span>
+    </div>
+    <div id="content">
+    	<form action="http://163.com" onSubmit="return checkForm()">
+      <table width="100%">
+        <tr>
+          <th>*&nbsp;邮件地址&nbsp;</th>
+          <td><input id="unameInp" type="text" class="txt_ipt" value="" style="width:188px;ime-mode:disabled" tabindex="1">
+            <strong>@</strong>
+            <select id="domainchkBox" class="g-select">
+              <option value="163.com">163.com</option>
+              <option value="126.com">126.com</option>
+              <option value="yeah.net">yeah.net</option>
+            </select><span id="unameErrTip" class="err_tips" style="display:none;">请输入正确的邮件地址</span>
+            <span id="unameWarnning"></span><br/>
+            <span class="txt_tips">6~18个字符，包括字母、数字、下划线，以字母开头，字母或数字结尾</span></td>
+        </tr>
+        <tr>
+          <th width="40%">*&nbsp;密码&nbsp;</th>
+          <td><input id="passwInp" type="password" value="" class="txt_ipt"  tabindex="2" style="width: 300px;"><span id="pwdErrTip" class="err_tips" style="display:none;">请输入正确的密码</span>
+            <span id="pwdWarnning"></span><br/>
+            <span class="txt_tips">6~16个字符，区分大小写</span> </td>
+        </tr>
+        <tr>
+          <th>*&nbsp;确认密码&nbsp;</th>
+          <td><input id="passConfim" type="password" class="txt_ipt"  tabindex="3" style="width: 300px;">
+            <span id="pwdConfirmWarnning"></span><br/>
+            <span class="txt_tips">请再次输入密码</span></td>
+        </tr>
+        <tr>
+          <th>手机号码&nbsp;</th>
+          <td><input id="mobileInp" type="text" class="txt_ipt" tabindex="7" style="width: 300px;"><span id="mobileWarnning"></span>
+            <span id="mobileWarnning"></span><br/>
+            <span class="txt_tips">密码遗忘或被盗时，可通过手机短信取回密码</span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="checkbox" checked="checked" id="serviceItemChek">
+            <label class="provision"> 同意“<a href="#" target="_blank">服务条款</a>”和“<a href="#" target="_blank">隐私权保护和个人信息利用政策</a>” </label></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" title="立即注册" value="" class="btn-reg" id="regBtn" tabindex="9"></td>
+        </tr>
+      </table>
+      </form>
+    </div>
+    <div id="bottom">
+    	<span class="left_bottom_c"></span>
+        <span class="right_bottom_c"></span>
+    </div>
+  </div>
+  <div id="footer"> <a href="http://corp.163.com/index_gb.html" target="_blank">关于网易</a>&nbsp;&nbsp;<a href="http://mail.163.com/html/mail_intro" target="_blank">关于网易免费邮</a>&nbsp;&nbsp;<a href="http://mail.blog.163.com/" target="_blank">邮箱官方博客</a>&nbsp;&nbsp;<a href="http://help.163.com/" target="_blank">客户服务</a>&nbsp;&nbsp;<a href="http://corp.163.com/gb/legal/legal.html" target="_blank">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;网易公司版权所有&nbsp;©&nbsp;1997-2011 </div>
+</div>
+</body>
+</html>

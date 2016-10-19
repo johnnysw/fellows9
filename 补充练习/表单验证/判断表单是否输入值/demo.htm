@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<style type="text/css">
+ input{ width:200px; height:24px; line-height:24px; border:1px solid #999; background:#ccc; margin:15px 0 0 100px; padding:4px; color:#666;}
+ .current{ background:#E0FEE4; border:1px solid #093;}
+</style>
+</head>
+
+<body>
+    <input class="" name="" value="请输入姓名：" type="text"><br>
+    <input class="" name="" value="aaa" type="text"><br>
+    <input class="" name="" value="e2323" type="text"><br>
+    <input class="" name="" value="sdfdsad" type="text"><br>
+    <input name="" value="请输入电子邮件：" type="text">
+
+    
+    <script type="text/javascript">
+     var aInp=document.getElementsByTagName('input');
+  var i=0;
+  var sArray=[];
+  
+  for(i=0; i<aInp.length; i++)
+  {
+   aInp[i].index=i;
+   sArray.push(aInp[i].value);
+   
+   aInp[i].onfocus=function()
+   {
+    if(sArray[this.index]==aInp[this.index].value)
+    {
+     aInp[this.index].value='';
+    }
+    aInp[this.index].className='current';
+   };
+   
+   aInp[i].onblur=function()
+   {
+    if(aInp[this.index].value=='')
+    {
+     aInp[this.index].value=sArray[this.index];
+    }
+    aInp[this.index].className='';
+   };
+  }
+    </script>
+
+</body></html>

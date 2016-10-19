@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>注册网易免费邮箱----中国第一大电子邮件服务商</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script>
+	function init(){
+		var regForm = document.getElementById("regForm");
+		regForm.onsubmit = function(){
+			var unameInp = document.getElementById("unameInp");
+			var unameErrTip = document.getElementById("unameErrTip");
+			var chkEmalResult = checkEmail(unameInp.value);
+			if(chkEmalResult != ""){
+				unameErrTip.style.display = "inline";
+				//unameErrTip.innerText = chkEmalResult;
+				unameErrTip.firstChild.nodeValue = chkEmalResult;
+				//unameErrTip.textContent = chkEmalResult;
+				showErrTips(unameInp);
+				return false
+			}
+			
+			var mobileInp = document.getElementById("mobileInp");
+			var mobileErrTip = document.getElementById("mobileErrTip");
+			var chkMobileResult = checkMobile(mobileInp.value);
+			//alert(chkMobileResult);
+			if(chkMobileResult != ""){
+				mobileErrTip.style.display = "inline";
+				mobileErrTip.firstChild.nodeValue = chkEmalResult;
+				showErrTips(mobileInp);
+				return false
+			}
+			return true;	
+		};
+	}
+	
+	function showErrTips(errTipsObj){
+		var oldClassName = errTipsObj.className;			
+		errTipsObj.className = oldClassName + " err_tips";
+	}
+	
+	function checkEmail(input){
+		//var flag = true;
+		if(input.length == 0){
+			return "邮件地址必须填写!";
+		}else if(input.length < 6 || input.length > 18){
+			//flag = false
+			return "输入的字符长度必须在6-18之间!";
+		}else if(!isNaN(input.charAt(0)) || input.charAt(input.length-1) == "_"){
+			return "只能以字母开头，字母或数字结尾!";
+		}else{
+			var flag = true;
+			var validChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+			for(i=0; i<input.length; i++){
+				if(validChars.indexOf(input.charAt(i)) == -1){
+					flag = false;
+					break;
+				}
+			}
+			if(!flag){
+				return "只能输入字母、数字、下划线!";
+			}
+		}
+		return "";
+	}
+	
+	function checkMobile(input){
+		if(input.length > 0){
+			if(isNaN(input)){
+				return "手机号码必须为数字!";
+			}else if(input.length != 11){
+				return "手机号码必须11位!";
+			}else{
+				var flag = false;
+				var chkStr = input.substring(0,3);
+				var arr = ["138","139","130","131","186"];
+				for(i=0; i<arr.length; i++){
+					if(chkStr == arr[i])
+						flag = true;
+				}
+				if(!flag)
+					return "必须以xxx开头!";
+			}
+		}
+		return "";
+	}
+	
+	window.onload=init;
+</script>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+  	<a class="logo" href="#" target="_blank"><img src="images/logo.png" alt="网易"></a>
+    <span class="slogan">中国第一大电子邮件服务商</span>
+    <span class="ext"><a href="#" target="_blank">反馈意见</a>&nbsp;&nbsp;<a href="#" target="_blank">帮助</a></span>
+  </div>
+  <div class="main">
+    <div class="title">
+    	<span class="crl"></span>
+        <span class="crr"></span> 
+        <a href="#" target="_blank" class="ext">了解详情»</a>
+		<h1>欢迎注册网易免费邮！您可以选择注册163、126、yeah.net三大免费邮箱。</h1>
+    </div>
+    <div class="content">
+    <form id="regForm" action="http://163.com" method="post">
+      <table width="100%">
+        <tr>
+          <th>*&nbsp;邮件地址&nbsp;</th>
+          <td><input id="unameInp" type="text" class="txt_ipt" value="" style="width:188px;ime-mode:disabled" tabindex="1">
+            <strong>@</strong>
+            <select id="domainchkBox" class="g-select">
+              <option value="163.com">163.com</option>
+              <option value="126.com">126.com</option>
+              <option value="yeah.net">yeah.net</option>
+            </select><span id="unameErrTip" class="err_tips" style="display:none;">请输入正确的邮件地址</span>
+            <br/>
+            <span class="txt_tips">6~18个字符，包括字母、数字、下划线，以字母开头，字母或数字结尾</span></td>
+        </tr>
+        <tr>
+          <th>*&nbsp;密码&nbsp;</th>
+          <td><input id="passwInp" type="password" value="" class="txt_ipt"  tabindex="2" style="width: 300px;"><span id="pwdErrTip" class="err_tips" style="display:none;">请输入正确的密码</span>
+            <br/>
+            <span class="txt_tips">6~16个字符，区分大小写</span> </td>
+        </tr>
+        <tr>
+          <th>*&nbsp;确认密码&nbsp;</th>
+          <td><input id="passConfim" type="password" class="txt_ipt"  tabindex="3" style="width: 300px;">
+            <br/>
+            <span class="txt_tips">请再次输入密码</span></td>
+        </tr>
+        <tr>
+          <th>手机号码&nbsp;</th>
+          <td><input id="mobileInp" type="text" class="txt_ipt" tabindex="7" style="width: 300px;">
+            <br/><span id="mobileErrTip" class="err_tips" style="display:none;">请输入正确的手机号码</span>
+            <span class="txt_tips">密码遗忘或被盗时，可通过手机短信取回密码</span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="checkbox" checked="checked" id="serviceItemChek">
+            <label class="provision"> 同意“<a href="#" target="_blank">服务条款</a>”和“<a href="#" target="_blank">隐私权保护和个人信息利用政策</a>” </label></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" title="立即注册" value="" class="btn-reg" id="regBtn" tabindex="9"></td>
+        </tr>
+      </table>
+      </form>
+    </div>
+    <div class="bottom">
+    	<span class="crl"></span>
+        <span class="crr"></span>
+    </div>
+  </div>
+  <div class="footer"> <a href="http://corp.163.com/index_gb.html" target="_blank">关于网易</a>&nbsp;&nbsp;<a href="http://mail.163.com/html/mail_intro" target="_blank">关于网易免费邮</a>&nbsp;&nbsp;<a href="http://mail.blog.163.com/" target="_blank">邮箱官方博客</a>&nbsp;&nbsp;<a href="http://help.163.com/" target="_blank">客户服务</a>&nbsp;&nbsp;<a href="http://corp.163.com/gb/legal/legal.html" target="_blank">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;网易公司版权所有&nbsp;©&nbsp;1997-2011 </div>
+</div>
+</body>
+</html>

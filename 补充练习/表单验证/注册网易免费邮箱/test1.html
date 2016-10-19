@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>无标题文档</title>
+        <style type="text/css">
+			*{ margin: 0; padding: 0;}
+			body{ width: 958px; margin: 0 auto; background: #F1F1F1; font-size: 13px;}
+        	div#banner{ width:958px; height: 80px; margin-top: 30px;}
+			div#banner span#slogan{ background:url(images/global2.png) no-repeat 0 0; width: 306px; height:33px; display:inline-block;}
+			div#banner div#help{ float: right; margin-top: 30px;}
+			div#banner div#help a{ color: #1D50A2; text-decoration: none;}
+			div#content{ width:958px; height: 465px; }
+			div#content div#title{ height: 46px;}
+			div#content div#title div#left{ background:url(images/global2.png) no-repeat -324px 0; width: 42px; height: 46px; float: left;}
+			div#content div#title div#right{ background:url(images/global2.png) no-repeat -366px 0; width: 4px; height: 46px; float: right;}
+			div#content div#title div#center{ background:url(images/bgx.png) repeat-x 0 0; width: 912px; height: 46px; float: left; color: #fff; line-height: 46px; text-indent: 10px;}
+			div#content div#title div#center span#more{ float: right; margin-right: 10px;}
+			div#content div#main{ background: #fff; height: 411px;}
+			div#content div#bottom div#left{ background:url(images/global2.png) no-repeat -252px -144px; width: 9px; height: 8px; float: left;}
+			div#content div#bottom div#right{ background:url(images/global2.png) no-repeat -261px -144px; width: 9px; height: 8px; float: right;}
+			div#content div#bottom div#center{ background:url(images/bgx.png) repeat-x 0 -180px; width: 940px; height: 8px; float: left;}
+			div#content div#main table{ width: 100%; height: auto;}
+			div#content div#main table th{ width:35%; text-align: right; height:69px; font-size: 16px;}
+			div#footer{ width: 958px; height: 46px; text-align: center; line-height: 46px;}
+			
+			.text_input{ border: 1px solid #C1C1C1; background: #FBFBFB url(images/bgx.png) repeat-x 0 -72px;padding: 4px;}
+			#btnReg{ background:url(images/global2.png) no-repeat 0 -180px; width: 104px; height: 38px; border: none;}
+			.err{ border: 1px solid #D28C8C; background-color: #FBE2E2; color: #A63B3B;}
+        </style>
+        <script type="text/javascript">
+			function check(){
+				var oEmail = document.getElementById('email');//xxaabb&(*13
+				var oErrEmail = document.getElementById('errEmail');
+				if(oEmail.value == ""){
+					oErrEmail.innerHTML = "邮件地址必须填写! ";
+					oEmail.className = oEmail.className + " err";
+					return false;
+				}else if(oEmail.value.length < 6 || oEmail.value.length > 18){
+					oErrEmail.innerHTML = "输入的字符长度必须在6-18之间! ";
+					oEmail.className = oEmail.className + " err";
+					return false;
+				}else if(!isNaN(oEmail.value.charAt(0)) || oEmail.value.charAt(oEmail.value.length - 1) == "_"){
+					oErrEmail.innerHTML = "只能以字母开头，字母或数字结尾! ";
+					oEmail.className = oEmail.className + " err";
+					return false;
+				}else{
+					var validChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+					for(var i=0; i<oEmail.value.length; i++){
+						if(  validChars.indexOf(oEmail.value.charAt(i)) == -1 ){
+							oErrEmail.innerHTML = "只能是字母，数字或下划线! ";
+							oEmail.className = oEmail.className + " err";
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+		</script>
+    </head>
+
+    <body>
+        <div id="banner">
+        	<img src="images/logo.png"/>
+            <span id="slogan"></span>
+            <div id="help">
+            	<a href="#">反馈意见</a>
+                <a href="#">帮助</a>
+            </div>
+        </div>
+        <div id="content">
+        	<div id="title">
+            	<div id="left"></div>
+                <div id="center">
+                	<span>欢迎注册网易免费邮！您可以选择注册163、126、yeah.net三大免费邮箱。</span>
+                    <span id="more">了解详情»</span>
+                </div>
+                <div id="right"></div>
+            </div>
+            <div id="main">
+            	<form action="success.html" onsubmit="return check();">
+                    <table>
+                      <tr>
+                        <th>* 邮件地址</th>
+                        <td>
+                            <input type="text" class="text_input" id="email"/>
+                            <strong>@</strong>
+                            <select id="domainchkBox" class="g-select">
+                              <option value="163.com">163.com</option>
+                              <option value="126.com">126.com</option>
+                              <option value="yeah.net">yeah.net</option>
+                            </select>
+                            <span id="errEmail"></span>
+                            <br/>
+                            6~18个字符，包括字母、数字、下划线，以字母开头，字母或数字结尾
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>* 密码</th>
+                        <td><input type="text" class="text_input"/><br/>6~16个字符，区分大小写</td>
+                      </tr>
+                      <tr>
+                        <th>* 确认密码</th>
+                        <td><input type="text" class="text_input"/><br/>请再次输入密码</td>
+                      </tr>
+                      <tr>
+                        <th>手机号码</th>
+                        <td><input type="text" class="text_input"/><br/>密码遗忘或被盗时，可通过手机短信取回密码</td>
+                      </tr>
+                      <tr>
+                        <th>&nbsp;</th>
+                        <td><input type="checkbox" checked="checked" id="serviceItemChek">
+                <label class="provision"> 同意“<a href="#" target="_blank">服务条款</a>”和“<a href="#" target="_blank">隐私权保护和个人信息利用政策</a>” </label></td>
+                      </tr>
+                      <tr>
+                        <th>&nbsp;</th>
+                        <td><input type="submit" id="btnReg" value=""/></td>
+                      </tr>
+                    </table>
+                </form>
+            </div>
+            <div id="bottom">
+            	<div id="left"></div>
+                <div id="center"></div>
+                <div id="right"></div>
+            </div>
+        </div>
+        <div id="footer"><a href="http://corp.163.com/index_gb.html" target="_blank">关于网易</a>&nbsp;&nbsp;<a href="http://mail.163.com/html/mail_intro" target="_blank">关于网易免费邮</a>&nbsp;&nbsp;<a href="http://mail.blog.163.com/" target="_blank">邮箱官方博客</a>&nbsp;&nbsp;<a href="http://help.163.com/" target="_blank">客户服务</a>&nbsp;&nbsp;<a href="http://corp.163.com/gb/legal/legal.html" target="_blank">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;网易公司版权所有&nbsp;©&nbsp;1997-2011 </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<style type="text/css">
+input {
+	width:200px;
+	height:24px;
+	line-height:24px;
+	border:1px solid #999;
+	background:#ccc;
+	margin:15px 0 0 100px;
+	padding:4px;
+	color:#666;
+}
+.current {
+	background:#E0FEE4;
+	border:1px solid #093;
+}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var aTexts = document.getElementsByTagName('input');
+		for(var i=0; i<aTexts.length; i++){
+			aTexts[i].onfocus = function(){
+				if(this.value == this.defaultValue){
+					this.value = "";
+					this.className = "current";
+				}
+			};
+			aTexts[i].onblur = function(){
+				if(this.value == ""){
+					this.value = this.defaultValue;
+					this.className = "";
+				}
+			};
+		}
+	};
+</script>
+</head>
+
+<body>
+<input value="请输入姓名：" type="text">
+<br>
+<input value="aaa" type="text">
+<br>
+<input value="e2323" type="text">
+<br>
+<input value="sdfdsad" type="text">
+<br>
+<input value="请输入电子邮件：" type="text">
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0044)http://www.cssrain.cn/demo/3style/51job.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>无标题文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">BODY {
+    FONT-SIZE: 12px; PADDING-TOP: 50px; height:100%;
+}
+html{height:100%;}
+H2 {
+    PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.bton {
+    BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; BACKGROUND: #ddd; BORDER-LEFT: #ccc 1px solid; BORDER-BOTTOM: #ccc 1px solid
+}
+.cont {
+    PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#main {
+    MARGIN: 0px auto; WIDTH: 400px
+}
+#selectItem {
+    BORDER-RIGHT: #000 1px solid; BORDER-TOP: #000 1px solid; MARGIN-TOP: 10px; Z-INDEX: 2; BACKGROUND: #fff; OVERFLOW: hidden; BORDER-LEFT: #000 1px solid; WIDTH: 400px; BORDER-BOTTOM: #000 1px solid; POSITION: absolute; TOP: 0px
+}
+#preview {
+    BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; MARGIN: 1px; BORDER-LEFT: #ccc 1px solid; BORDER-BOTTOM: #ccc 1px solid
+}
+#result {
+    BORDER-RIGHT: #ccc 1px solid; BORDER-TOP: #ccc 1px solid; MARGIN-TOP: 10px; BORDER-LEFT: #ccc 1px solid; BORDER-BOTTOM: #ccc 1px solid
+}
+.tit {
+    PADDING-LEFT: 10px; MARGIN: 1px; LINE-HEIGHT: 20px; HEIGHT: 20px
+}
+.bgc_ccc {
+    BACKGROUND: #ccc
+}
+.bgc_eee {
+    BACKGROUND: #eee
+}
+.c_999 {
+    COLOR: #999
+}
+.pointer {
+    CURSOR: pointer
+}
+.left {
+    FLOAT: left
+}
+.right {
+    FLOAT: right
+}
+.cls {
+    CLEAR: both; FONT-SIZE: 0px; OVERFLOW: hidden; HEIGHT: 0px
+}
+#bg {
+    DISPLAY: none; Z-INDEX: 1; BACKGROUND: #ccc; FILTER: alpha(opacity=70); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; opacity: 0.7
+}
+.hidden {
+    DISPLAY: none
+}
+.move {
+    CURSOR: move
+}
+</style>
+<meta content="MSHTML 6.00.2900.3314" name="GENERATOR"></head>
+<body>
+<div id="main"><input class="bton pointer" onclick="openBg(1);openSelect(1)" value="请选择" name="button" type="button"> 
+<div id="result">
+<div class="tit bgc_eee">
+<h2>您已选择的城市汇总</h2></div>
+<div class="cont" id="makeSureItem"></div></div></div>
+<div style="display: none; height: 800px;" id="bg"></div>
+<div style="display: none; left: 585px; top: 196px;" class="hidden" id="selectItem">
+<div class="tit bgc_ccc move" onmousedown="drag(event,this)">
+<h2 class="left">请选择城市</h2><span class="pointer right" onclick="openBg(0);openSelect(0);">[取消]</span> <span class="pointer right" onclick="makeSure();">[确定]</span> </div>
+<div class="cls"></div>
+<div class="cont">
+<div id="selectSub"><select style="MARGIN-BOTTOM: 10px" onchange="showSelect(this.value)" name=""> <option value="0">第0层</option> 
+  <option value="1">第1层</option> <option selected="selected" value="2">第2层</option> <option value="3">第3层</option></select> 
+<div style="display: none;" id="c00"><input onclick="addPreItem()" value="北京" name="ck00" type="checkbox">北京 
+<input onclick="addPreItem()" value="福建" name="ck00" type="checkbox">福建 <input onclick="addPreItem()" value="四川" name="ck00" type="checkbox">四川 <input onclick="addPreItem()" value="江苏" name="ck00" type="checkbox">江苏 </div>
+<div style="display: none;" id="c01"><input onclick="addPreItem()" value="上海" name="ck01" type="checkbox">上海 
+<input onclick="addPreItem()" value="云南" name="ck01" type="checkbox">云南 <input onclick="addPreItem()" value="贵州" name="ck01" type="checkbox">贵州 </div>
+<div style="display: block;" id="c02"><input onclick="addPreItem()" value="黑龙江" name="ck01" type="checkbox">黑龙江 
+<input checked="checked" onclick="addPreItem()" value="吉林" name="ck01" type="checkbox">吉林 <input onclick="addPreItem()" value="辽宁" name="ck01" type="checkbox">辽宁 </div>
+<div style="display: none;" id="c03"><input onclick="addPreItem()" value="美国" name="ck01" type="checkbox">美国 
+<input onclick="addPreItem()" value="阿富汗" name="ck01" type="checkbox">阿富汗 <input onclick="addPreItem()" value="日本" name="ck01" type="checkbox">日本 </div></div></div>
+<div id="preview">
+<div class="tit bgc_eee c_999">
+<h2>您已选择的城市</h2></div>
+<div class="cont" id="previewItem"><input checked="checked" value="吉林" onclick='copyItem("previewItem","previewItem");same(this);' type="checkbox">吉林</div></div></div>
+<script type="text/javascript">
+/* ------使用说明----- */
+/*
+    添加城市方法：
+        添加组：找到id 是 "selectSub"中select标签下，添加option标签 value属性递增，找到 id 是 "selectSub",按照原有格式添加div,其id属性递增
+    添加二级傅选矿选项
+        复制 id 是 "selectSub" 下任意input标签，粘贴在需要添加的位置。
+*/
+var grow = $("selectSub").getElementsByTagName("option").length; //组数
+var showGrow = 0;//已打开组
+var selectCount = 0; //已选数量 
+showSelect(showGrow);
+var items = $("selectSub").getElementsByTagName("input");
+//alert(maxItem);
+//var lenMax = 2; 
+//alert(1);
+function $(o){ //获取对象
+    if(typeof(o) == "string")
+    return document.getElementById(o);
+    return o;
+}
+function openBg(state){ //遮照打开关闭控制
+    if(state == 1)
+    {
+        $("bg").style.display = "block";
+        var h = document.body.offsetHeight > document.documentElement.offsetHeight ? document.body.offsetHeight : document.documentElement.offsetHeight;
+    //alert(document.body.offsetHeight);
+    //alert(document.documentElement.offsetHeight);
+        $("bg").style.height = h + "px";
+    }
+    else
+    {
+        $("bg").style.display = "none";
+    }    
+}
+function openSelect(state){ //选择城市层关闭打开控制
+    if(state == 1)    
+    {
+        $("selectItem").style.display = "block";
+        $("selectItem").style.left = ($("bg").offsetWidth - $("selectItem").offsetWidth)/2 + "px";
+        $("selectItem").style.top = document.body.scrollTop + 100 + "px";        
+    }
+    else
+    {
+        $("selectItem").style.display = "none";
+    }
+}
+function showSelect(id){
+    for(var i = 0 ; i < grow ;i++)
+    {
+        $("c0" + i).style.display = "none";
+    }
+    $("c0" + id).style.display = "block";
+    showGrow = id;
+}
+function open(id,state){ //显示隐藏控制
+    if(state == 1)
+    $(id).style.display = "block";
+    $(id).style.diaplay = "none";
+}
+function addPreItem(){    
+    $("previewItem").innerHTML = "";
+    var len　= 0 ;
+    for(var i = 0 ; i < items.length ; i++)
+    {
+        if(items[i].checked == true)
+        {
+            //len++;
+            //if(len > lenMax)
+            //{
+            //    alert("不能超过" + lenMax +"个选项！")
+            //    return false;
+            //}
+            var mes = "<input type='checkbox' checked='true' value='"+ items[i].value +"' onclick='copyItem(\"previewItem\",\"previewItem\");same(this);'>" + items[i].value;
+            $("previewItem").innerHTML += mes;
+            //alert(items[i].value);
+        }
+    }
+}
+function makeSure(){
+    //alert(1);
+    //$("makeSureItem").innerHTML = $("previewItem").innerHTML;
+    openBg(0);
+    openSelect(0);
+    copyItem("previewItem","makeSureItem")    
+}
+function copyHTML(id1,id2){
+    $(id2).innerHTML = $("id1").innerHTML;
+}
+function copyItem(id1,id2){
+    
+    var mes = "";
+    var items2 = $(id1).getElementsByTagName("input");
+    for(var i = 0 ; i < items2.length ; i++)
+    {
+        if(items2[i].checked == true)
+        {
+            mes += "<input type='checkbox' checked='true' value='"+ items2[i].value +"' onclick='copyItem(\"" + id2+ "\",\""+ id1 +"\");same(this);'>" + items2[i].value;            
+        }
+    }
+    $(id2).innerHTML = "";
+    $(id2).innerHTML += mes;
+    //alert($(id2).innerHTML);
+}
+function same(ck){
+    for(var i = 0 ; i < items.length ; i++)
+    {
+        if(ck.value == items[i].value)
+        {
+            items[i].checked = ck.checked;
+        }
+    }
+}    
+/* 鼠标拖动 */
+var oDrag = "";
+var ox,oy,nx,ny,dy,dx;
+function drag(e,o){
+    var e = e ? e : event;
+    var mouseD = document.all ? 1 : 0;
+    if(e.button == mouseD)
+    {
+        oDrag = o.parentNode;
+        //alert(oDrag.id);
+        ox = e.clientX;
+        oy = e.clientY;        
+    }
+}
+function dragPro(e){
+    if(oDrag != "")
+    {    
+        var e = e ? e : event;
+        //$(oDrag).style.left = $(oDrag).offsetLeft + "px";
+        //$(oDrag).style.top = $(oDrag).offsetTop + "px";
+        dx = parseInt($(oDrag).style.left);
+        dy = parseInt($(oDrag).style.top);
+        //dx = $(oDrag).offsetLeft;
+        //dy = $(oDrag).offsetTop;
+        nx = e.clientX;
+        ny = e.clientY;
+        $(oDrag).style.left = (dx + ( nx - ox )) + "px";
+        $(oDrag).style.top = (dy + ( ny - oy )) + "px";
+        ox = nx;
+        oy = ny;
+    }
+}
+document.onmouseup = function(){oDrag = "";}
+document.onmousemove = function(event){dragPro(event);}
+</script>
+<center>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br>
+</center>
+</body></html>
