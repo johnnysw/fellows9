@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例2.1-选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+
+            margin: 50px auto;
+
+        }
+
+        #nav{
+            height: 30px;
+        }
+
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: #ccc;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+
+        }
+
+        #content{
+            background: #ccc;
+            width: 400px;
+            height: 170px;
+            border-top:1px solid #000;
+        }
+
+        #nav .selected{
+            background: #000;
+            color:#fff;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id='container'>
+    <ul id='nav'>
+        <li class='selected'>js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+
+    <div id="content">
+        1111111
+    </div>
+
+</div>
+<script>
+    var data = ["111111","222222","333333"];
+
+    var oNav = document.getElementById('nav');
+    var aLi = oNav.getElementsByTagName("li");
+    var oContent = document.getElementById('content');
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].xx = i;//aLi[0].xx=0;aLi[1].xx=1;
+        aLi[i].onclick = function(){
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = "";
+            }
+            this.className = 'selected';
+            oContent.innerHTML = data[this.xx];
+        }
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

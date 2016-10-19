@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">add</button>
+    <ul id="list">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oList = document.getElementById("list");
+
+        oBtn.onclick = function(){
+            var oLi = document.createElement("li");
+            oLi.innerHTML = Math.random();
+            oList.appendChild(oLi);
+        };
+
+        oList.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            alert(target.innerHTML);
+        };
+//        var aLi = oList.getElementsByTagName("li");
+//        for(var i=0; i<aLi.length; i++){
+//            aLi[i].onclick = function(){
+//                alert(this.innerHTML);
+//            };
+//        }
+
+    </script>
+</body>
+</html>
