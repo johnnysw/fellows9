@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function merge(s1, s2){
+            var result = '';
+            for(var i=0; i<s1.length; i++){
+                result += s1.charAt(i) + s2.charAt(i);
+            }
+            return result;
+        }
+        console.log(merge('123456', 'abc'));
+    </script>
+</body>
+</html>

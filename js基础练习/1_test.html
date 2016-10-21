@@ -78,10 +78,48 @@
 //            console.log(i);
         }
 
-        var result = prompt("请输入");
-        console.log(result);
+//        var result = prompt("请输入");
+//        console.log(result);
+
+        function abc(){}
+
+        /*函数立即调用*/
+
+//        var aa = function(x, y){
+//            console.log(x + y);
+//        }
+        (function(x, y){
+            var a = 5;
+//            console.log(x + y);
+        })(1, 2);
 
 
+//        function aaa(){
+//            console.log(arguments[0]);
+//            console.log(arguments[1]);
+//            console.log(arguments[2]);
+//        }
+//        aaa(2, 3, 4);
+//        function aaa(x, y){
+//            console.log(x);
+//            console.log(y);
+//        }
+//        aaa(2);
+
+//            function aa(obj){
+//
+//            }
+//            var obj = {
+//                name : 'asdf',
+//                age : 18,
+//                school : 'asdf',
+//                sex : 'nan'
+//            };
+//            aa(obj);
+
+//            var bb = function(){alert(11);};
+            var bb = new Function("alert(11);");
+        bb();
 
 
     </script>
