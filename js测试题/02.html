@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <img id="img" src="img/1.jpg">
+<script>
+
+        var oImg = document.getElementById('img');
+        oImg.flag = 1;
+        oImg.onclick = function(){
+            if(this.flag == 1){
+                this.src = 'img/1.jpg';
+                this.flag = 2;
+            }else if(this.flag == 2) {
+                this.src = 'img/2.jpg';
+                this.flag = 3;
+            }else{
+                this.src = 'img/3.jpg';
+                this.flag = 1;
+            }
+
+        }
+
+</script>
+</body>
+</html>
