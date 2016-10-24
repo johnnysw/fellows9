@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function collectDigits(str){
+            var result = "";
+            for(var i=0; i<str.length; i++){
+                var c = str.charAt(i);
+                if(c >= '0' && c <='9'){
+                    result += c;
+                }
+            }
+            return result;
+        }
+        console.log(collectDigits("1abc23def4"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function leapYear(year){
+            if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+                return true;
+            }
+            return false;
+        }
+        var today = new Date();   //获取当天日期
+        var year = today.getFullYear();   //获取当天年份
+
+        var bLeap = leapYear(year);
+        if(bLeap){
+            document.write(year + "年是闰年");
+        }else{
+            document.write(year + "年不是闰年");
+
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
