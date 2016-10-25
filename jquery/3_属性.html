@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+        #div1.aa{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <input type="text" id="ipt" value="123">
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+//        var oDiv = document.getElementById("div1");
+
+//        oDiv.aa = "bb";
+//        console.log(oDiv.aa);
+//        oDiv.setAttribute("cc", "dd");
+//        console.log(oDiv.getAttribute("cc"));
+
+        var $div = $("#div1");
+//        $div.attr("aa", "bb");
+//        console.log($div.attr("aa"));
+
+//        $div.prop("cc", "dd");
+//        console.log($div.prop("cc"));
+
+//        console.log($("#ipt").prop("value"));
+
+//        $div.css({
+//            width: "200px",
+//            height: 200
+//        });
+//
+//        $div.css("background", function(){
+//            return "red";
+//        });
+        $div.on("click", function(){
+            $div.toggleClass("aa");
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
