@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<textarea name="erea"></textarea>
+<input type="text" name="aaa">
+
+<script>
+    var oErea = document.getElementsByName('erea')[0];
+    var oAaa = document.getElementsByName('aaa')[0];
+    oErea.onkeyup = function(){
+        //console.log(this.value);
+        var content = this.value;
+        if(content.length>20){
+            content = content.substring(0,20);
+        }
+        this.value = content;
+        oAaa.value = content.length;
+
+    }
+
+</script>
+</body>
+</html>

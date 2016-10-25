@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <select name="sel">
+        <option value="img/1.jpg">1111</option>
+        <option value="img/2.jpg">2222</option>
+        <option value="img/3.jpg">3333</option>
+    </select>
+    <input type="text" name="content"/>
+    <img id='img' src="img/1.jpg">
+    <script>
+        var oSel = document.getElementsByName("sel")[0];
+        var aOp = oSel.getElementsByTagName('option');
+        var oContent = document.getElementsByName('content')[0];
+        var oImg = document.getElementById('img');
+        oSel.onchange = function(){
+            for(var i=0;i<aOp.length;i++){
+                if(aOp[i].selected){
+                    oImg.src = "img/"+(i+1)+".jpg";//aOp[i].value;
+                    oContent.value = aOp[i].innerHTML;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
