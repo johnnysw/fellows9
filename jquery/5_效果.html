@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">hide</button>
+    <button id="btn2">show</button>
+    <button id="btn3">toggle</button>
+    <button id="btn4">fadeIn</button>
+    <button id="btn5">fadeOut</button>
+    <button id="btn6">slideDown</button>
+    <button id="btn7">slideUp</button>
+    <button id="btn8">animate</button>
+    <div id="div1"></div>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+    <script>
+        $(function(){
+            var $div1 = $("#div1");
+            $("#btn1").on("click", function(){
+                $div1.hide(1000);
+            });
+            $("#btn2").on("click", function(){
+                $div1.show("fast");
+            });
+            $("#btn3").on("click", function(){
+                $div1.toggle();
+            });
+            $("#btn4").on("click", function(){
+                $div1.fadeIn(2000);
+            });
+            $("#btn5").on("click", function(){
+                $div1.fadeOut();
+            });
+            $("#btn6").on("click", function(){
+                $div1.slideDown(5000);
+            });
+            $("#btn7").on("click", function(){
+                $div1.slideUp();
+            });
+            $("#btn8").on("click", function(){
+                $div1.animate({
+                    width: 400,
+                    height: 400
+                }, 3000, "easeInOutBack", function(){
+                    console.log(123);
+                });
+            });
+
+
+
+        });
+    </script>
+
+</body>
+</html>
