@@ -6,10 +6,50 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
  <!--   引入jQuery -->
  <script src="../../../jquery/jquery-1.12.4.js" type="text/javascript"></script>
-<script src="script/demo1.js" type="text/javascript"></script>
+<!--<script src="script/demo1.js" type="text/javascript"></script>-->
 
 <script type="text/javascript">
 	$(function(){
+//		$('.bigger').on('click',function(){
+//
+//			var $font = $('#para').css('font-size');
+//
+//			var $num = parseInt($font);
+//			$num = $num+2;
+//			if($num > 22){
+//				$num = 22;
+//			}
+//			$('#para').css('font-size',$num);
+//
+//
+//		});
+//		$('.smaller').on('click',function(){
+//
+//			var $font = $('#para').css('font-size');
+//
+//			var $num = parseInt($font);
+//			$num = $num-2;
+//			$('#para').css('font-size',$num);
+//
+//
+//		});
+
+		$('span').on('click',function(){
+			var $font = $('#para').css('font-size');
+
+			var $num = parseInt($font);
+			if($(this).prop('class') == 'bigger'){
+				$num = $num+2;
+				if($num >22){
+					$num = 22;
+				}
+			}
+			else{
+				$num = $num-2;
+			}
+			$('#para').css('font-size',$num+'px');
+		});
+
 
 	});
 </script>
