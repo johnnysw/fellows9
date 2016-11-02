@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+    </style>
+</head>
+<script src="jquery-1.12.4.js"></script>
+<body>
+<ul>
+    <li>Milk</li>
+    <li>Bread</li>
+    <li class='fade'>Chips</li>
+
+    <li class='fade'>Socks</li>
+</ul>
+<script>
+    $("li").click(function(){
+                $(this).append($("<span> ***</span>"));
+            }
+//            function () {
+//                $(this).append($("<span> ***</span>"));
+//            },
+//            function () {
+//                $(this).find("span:last").remove();
+//            }
+    );
+
+
+</script>
+
+</body>
+</html>
