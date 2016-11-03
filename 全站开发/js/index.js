@@ -22,4 +22,15 @@ $(function(){
         }
 
     });
+    var a = 0;
+    var $li = $('#img-box li');
+    $('#next').on('click',function(){
+        a++;
+       if(a == $li.size()){
+           a = 0;
+       }
+        $('#img-box').animate({
+            left:-a*$li.eq(0).width()
+        })
+    });
 });
