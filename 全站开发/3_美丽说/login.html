@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>美丽说</title>
+	<link rel="stylesheet" href="css/base.css"/>
+	<link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+	<!-- <div class="container"> -->
+		<div id="header" class="center">
+			<div class="follow clearfix">
+				<span>关注我们</span>
+				<span class="weibo"></span>
+				<span class="qzone"></span>
+				<span class="follow-num">4645万</span>
+			</div>
+			<a class="logo" href="#"></a>
+			<ul class="login-menu clearfix">
+				<li><a href="#"><span class="weibo"></span>微博登录</a></li>
+				<li><a href="#"><span class="qzone"></span>QQ登录</a></li>
+				<li><a href="login.html" class="c-pink">登录</a></li>
+				<li style="border-right:none;"><a href="register.html" class="c-pink">注册</a></li>
+			</ul>
+		</div>
+		<div id="nav">
+			<div class="center clearfix">
+				<ul class="clearfix">
+					<li><a href="index.html" class="active">首页</a></li>
+					<li><a href="#">翻杂志</a></li>
+					<li><a href="#">今日最热</a></li>
+					<li><a href="#">衣服</a></li>
+					<li><a href="#">鞋子</a></li>
+					<li><a href="#">包包</a></li>
+					<li><a href="#">配饰</a></li>
+					<li><a href="#">家居</a></li>
+					<li><a href="#">口碑美妆</a></li>
+					<li><a href="#">逛美妆</a></li>
+					<li><a href="#">搭配</a></li>
+					<li><a href="#">达人</a></li>
+					<li><a href="#">品牌</a></li>
+					<li><a href="#">福利社</a></li>
+					<li><a href="#">好店</a></li>
+				</ul>
+				<div class="search clearfix">
+					<input class="search-ipt" type="text" autocomplete="off" value="" placeholder="搜宝贝、用户、杂志">
+					<input type="submit" class="search-btn" value=""/>
+				</div>
+			</div>
+		</div>
+		<div class="login clearfix">
+			<div class="login-mls">
+				<h2>登录美丽说</h2>
+					<form id="loginForm" method="post"  action="">			
+						<p>
+							<label for="mlsUser">账&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+							<input class="l-ipt" id="mlsUser" type="text" name="mlsUser" value="" placeholder="注册时使用的邮箱/昵称">
+						</p>
+						<p>
+							<label for="mlsPass">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+							<input  class="l-ipt" id="mlsPass" name="password" type="password" value="">							
+						</p>
+						<!-- <div class="check-box" id="checkBox">
+							<label for="checkcode">验证码&nbsp;：</label>
+							<input class="l-ipt" id="checkcode" name="checkcode" type="text" value="" maxlength="4">
+							<div class="check-image">
+								<span id="checkcodeImage">
+									<img width="90" height="36" isblank="false" src="http://captcha.meilishuo.com/Register/Captcha?token=asde39ad9&amp;session=0.9903579447418451">
+								</span>
+								<span class="red-f">换一张</span>
+							</div>
+						</div>
+ -->						<div class="ml40-f">
+							<input type="checkbox" name="savestate" id="savestate" value="savestate" checked="checked">
+							<label for="savestate">记住我（下次自动登录）</label>
+						</div>
+						<div class="submit-box">
+							<input class="button" type="submit" value="登&nbsp;&nbsp;&nbsp;录">
+							<a class="red-f" href="#">忘记密码了？</a>
+						</div>			
+					</form>
+			</div>	
+			<div class="login-other clearfix">
+				<p>还没有美丽说账号？&nbsp;<a class="red-f" href="register.html">立即注册</a></p>		
+				<p>你还可以用以下方式直接登录：</p>
+				<div>
+					<a class="mls-sinaweibo" href="#"></a>
+					<a class="mls-qq" href="#"></a>
+					<a class="mls-taobao" href="#"></a>
+					<a class="mls-renren" href="#"></a>
+					<a class="mls-wangyi" href="#"></a>
+					<a class="mls-txweibo" href="#"></a>
+					<a class="mls-douban" href="#"></a>
+					<a class="mls-baidu" href="#"></a>
+				</div>	
+			</div>
+		</div>		
+		<div id="footer">
+			<div class="center">
+				<div class="col">
+					<h4>发现美丽</h4>
+					<ul>
+						<li>
+							<a href="/goods/" target="_blank">挑衣服</a>
+						</li>
+						<li>
+							<a href="/magazine/" target="_blank">翻杂志</a>
+						</li>
+						<li>
+							<a href="/findfs/main/recommend" target="_blank">看达人</a>
+						</li>
+						<li>
+							<a href="/shop/" target="_blank">逛店铺</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>获取帮助</h4>
+					<ul>
+						<li>
+							<a href="/help/" target="_blank">新手指南</a>
+						</li>
+						<li>
+							<a href="/sitemap/" target="_blank">网站地图</a>
+						</li>
+						<li>
+							<a href="/aboutus/direct" target="_blank">社区指导原则</a>
+						</li>
+						<li>
+							<a href="/help/feedback" target="_blank">意见反馈</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>关于我们</h4>
+					<ul>
+						<li>
+							<a href="/aboutus?sl=h3" target="_blank">关于美丽说</a>
+						</li>
+						<li>
+							<a href="/aboutus/contactus?sl=h3" target="_blank">联系我们</a>
+						</li>
+						<li>
+							<a href="/aboutus/joinus?sl=h3" target="_blank">加入美丽说</a>
+						</li>
+						<li>
+							<a href="http://pro.meilishuo.com" target="_blank">营销中心</a>
+						</li>
+						<li>
+							<a href="/aboutus/privacy" target="_blank">隐私政策</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>更多</h4>
+					<ul>
+						<li>
+							<a href="/client/iPhone" target="_blank">下载IOS客户端</a>
+						</li>
+						<li>
+							<a href="/client/android" target="_blank">下载Android客户端</a>
+						</li>
+						<li>
+							<a href="/sogou_skin" target="_blank">下载sogou输入法</a>
+						</li>
+						<li>
+							<a href="/topic/list/hot" target="_blank">每周热门话题</a>
+						</li>
+						<li>
+							<a href="/aboutus/links" target="_blank">友情链接</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>关注我们</h4>
+					<ul class="col-2">
+						<li>
+							<a href="#" target="_blank">
+								<span class="weibo">&nbsp;</span>
+								新浪微博
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<span class="renren">&nbsp;</span>
+								公共主页
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<span class="tx">&nbsp;</span>
+								腾讯微博
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<span class="qzone">&nbsp;</span>
+								QQ空间
+							</a>
+						</li>
+						<li>
+							<a href="h#" target="_blank">
+								<span class="wangyi">&nbsp;</span>
+								网易微博
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<span class="douban">&nbsp;</span>
+								豆瓣
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col weixin">
+					<img src="img/qrcode_meilishuo.jpg" alt=" ">
+					<p>下载美丽说手机客户端</p>
+				</div>
+				<div class="copyright">
+					Copyright ©2013 Meilishuo.com &nbsp;<a href="#" target="_blank">电信与信息服务业务经营许可证100798号</a>&nbsp; <a href="#" target="_blank">企业法人营业执照</a>&nbsp; 京ICP备11031139号&nbsp; 京公网安备110108006045&nbsp;<br>客服邮箱：kefu@meilishuo.com&nbsp; 文明办网文明上网举报电话：010-82615762 &nbsp;<a href="#" target="_blank">违法不良信息举报中心</a>&nbsp; 举报邮箱：jubao@meilishuo.com
+				</div>
+			</div>
+		</div>
+	<!-- </div> -->
+	<a id="feedback" href="#" target="_blank"><span>意见反馈</span></a>
+	<a id="go-top" href="#"></a>
+</body>
+</html>

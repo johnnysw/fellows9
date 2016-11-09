@@ -1,0 +1,101 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #f2f0f0;
+	color: #666;
+	font-size: 12px;
+	font-family: Arial;
+}
+
+ul{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+img{
+	border: 0;
+}
+
+#header{
+	height: 45px;
+	padding: 4px 0 3px;
+	background: red;
+}
+#logo{
+	width: 44px;
+	height: 44px;
+	background: url(../img/mls_global130614.png) no-repeat -110px -114px;
+}
+#nav{
+	height: 30px;
+	background: pink;
+}
+#nav ul{
+	background: blue;
+	
+}
+#nav li{
+	float: left;
+	height: 30px;
+}
+#banner{
+	height: 101px;
+	background: green;
+}
+
+.center{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

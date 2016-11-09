@@ -1,0 +1,323 @@
+
+#banner{
+	height: 100px;
+	margin-top: 14px;
+	border: 1px solid #E6E4E4;
+	text-align: center;
+}
+
+#banner img{
+	width: 100%;
+}
+
+#carousel{
+	width: 640px;
+	height: 240px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+}
+
+.carousel-img{
+	/*width: 3840px;*/
+	height: 240px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.carousel-img div{
+	float: left;
+}
+
+.carousel-num{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 10;
+}
+
+.carousel-num li{
+	background: #FFE1EA;
+	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 6px;
+	height: 8px;
+	width: 8px;
+}
+
+.carousel-num li.active{
+	background: #ff6699;
+}
+
+#recommend{
+	height: 240px;
+	margin-top: 14px;
+	background: #ffffff;
+	border: 1px solid #E6E4E4;
+}
+
+.recommend-cate{
+	float: left;
+	margin-top: 10px;
+	padding-left: 13px;
+	width: 282px;
+}
+
+.recommend-cate-title{
+	height: 18px;
+	line-height: 18px;
+}
+
+.recommend-cate-title h2{
+	float: left;
+	font-size: 14px;
+}
+
+.recommend-cate-title span{
+	float: right;
+	color: #999999;
+}
+
+.recommend-cate-list{
+
+}
+
+.recommend-cate-list li{
+	height: 20px;
+	line-height: 20px;
+	margin-top: 12px;
+}
+
+.recommend-cate-list dt a{
+	text-align: center;
+	float: left;
+	height: 20px;
+	width: 44px;
+	border-radius: 3px;
+	background: #ffdce7;
+	color: #ff6699;
+}
+
+.recommend-cate-list dd a{
+	padding-left: 9px;
+	padding-right: 5px;
+	color: #ff6699;
+}
+
+
+#top100{
+	height: 52px;
+	margin-top: 14px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	padding: 2px 0;
+}
+
+.top100-inner{
+	background: url("../img/wlc_top1.png") no-repeat 18px 7px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	height: 36px;
+	padding: 7px 0;
+}
+
+.top100-inner a{
+	width: 135px;
+	float: left;
+	/*text-indent: -999em;*/
+	height: 36px;
+	margin-left: 2px;
+}
+
+.wrapper{
+	margin-top: 14px;
+}
+
+.wrapper h3{
+	font-size: 16px;
+}
+
+.product-list li{
+	margin-top: 14px;
+	margin-right: 16px;
+	float: left;
+	width: 226px;
+	height: 300px;
+	background: #ffffff;
+	border: 1px solid #E6E4E4;
+	position: relative;
+}
+
+.product-list li.col1{
+	margin-left: 0;
+}
+
+.product-list li.col4{
+	margin-right: 0;
+}
+
+.product-img{
+	margin-top: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+}
+
+.product-title{
+	height: 18px;
+	line-height: 18px;
+	padding: 10px 13px 0;
+}
+
+.product-title a{
+	font-size: 14px;
+	float: left;
+	color: #666;
+}
+
+.like{
+	float: right;
+}
+
+.like em{
+	background: url("../img/heart.png") no-repeat 0 4px;
+	padding: 2px 8px;
+}
+
+.product-detail{
+	color: #999999;
+	height: 36px;
+	line-height: 18px;
+	overflow: hidden;
+	margin: 5px 13px 8px;
+}
+
+#discover{
+	height: 170px;
+	margin-top: 14px;
+	background: #ffffff;
+	border: 1px solid #E6E4E4;
+}
+
+#discover h3{
+	padding: 13px;
+	font-size: 16px;
+}
+
+#discover h3 a{
+	color: #ff6699;
+}
+
+#discover li{
+	float: left;
+	width: 48px;
+	height: 48px;
+	border: 1px solid #ccc;
+	margin: 0 0 12px 12px;
+}
+
+#more-share{
+	height: 190px;
+	margin-top: 14px;
+	background: #ffffff;
+	border: 1px solid #E6E4E4;
+}
+
+#more-share ul{
+	padding: 10px;
+}
+
+#more-share li{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+#more-share li.register{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#more-share a{
+	color: #666;
+}
+
+#more-share .register a span{
+	color: #ff6699;
+}
+
+#more-share em{
+	display: inline-block;
+}
+
+#more-share .info{
+	color: #b2b2b2;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#more-share .more-share-btn{
+	background: url("../img/btn_pic121201.png") no-repeat;
+	display: inline-block;
+	background-position: 0 0;
+	width: 180px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 6px;
+	position: relative;
+}
+
+#more-share .more-share-btn span{
+	background: url("../img/btn_pic121201.png") no-repeat;
+	display: inline-block;
+	background-position: -394px 0;
+	height: 40px;
+	right: -6px;
+	top: 0;
+	width: 6px;
+	position: absolute;
+}
+
+#feedback {
+	left: 0px;
+	bottom: 210px;
+	width: 26px;
+	position: fixed;
+	z-index: 9;
+	cursor: pointer;
+	color: #999999;
+}
+
+#feedback span{
+	border-radius: 0px 3px 3px 0px;
+	background: #ffffff url("../img/mls_global130614.png") no-repeat -227px -15px;
+	border: 1px solid #E6E4E4;
+	text-align: center;
+	float: left;
+	overflow: hidden;
+	padding: 24px 5px 5px;
+}
+
+
+#go-top{
+	width: 34px;
+	height: 30px;
+	padding: 5px;
+	background: #ffffff url("../img/mls_global130614.png") no-repeat -47px -156px;
+	border: 1px solid #E6E4E4;
+	border-radius: 3px;
+	overflow: hidden;
+	position: fixed;
+	bottom: 10px;
+	right: 0px;
+	z-index: 9;
+	display: none;
+}
