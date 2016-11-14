@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            -webkit-perspective: 800px;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            -webkit-animation: xxx 5s ease 2s infinite;
+        }
+
+        @-webkit-keyframes xxx {
+            0%{
+
+            }
+            50%{
+                -webkit-transform: rotateY(360deg);
+            }
+            100%{
+                width: 500px;
+                height: 500px;
+                background: green;
+                -webkit-transform: rotateY(720deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+
+</body>
+</html>

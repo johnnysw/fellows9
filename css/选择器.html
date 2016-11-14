@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        /*#div1:target{*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+            /*background: red;*/
+        /*}*/
+        #div1{
+            /*width: 200px;*/
+            height: 100px;
+        }
+
+        /*#div1::first-letter{*/
+            /*font-size: 40px;*/
+        /*}*/
+
+        /*#div1::first-line{*/
+            /*background: red;*/
+        /*}*/
+
+        /*#div1::after{*/
+            /*content: "哈哈哈哈哈哈";*/
+            /*background: red;*/
+            /*width: 200px;*/
+            /*display: block;*/
+        /*}*/
+
+
+        #div1::selection{
+            background: green;
+            color: #fff;
+        }
+        input::-webkit-input-placeholder{
+            /*-ms; ie
+              -moz-  ff
+              -webkit-   谷歌,苹果
+              -o-   o
+              -input-placeholder
+            */
+
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" placeholder="占位符" />
+    <div id="div1">
+            ddddd
+    </div>
+    <div id="div2">
+        bbbbbddd
+    </div>
+</body>
+</html>

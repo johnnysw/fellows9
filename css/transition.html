@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /*-webkit-transition: width 2s ease-in-out 2s;过渡*/
+            /*-webkit-transition: width 2s ease-in-out,height 3s ease;*/
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    </div>
+
+    <script>
+
+        var oDiv = document.getElementById('div1');
+        oDiv.onclick = function(){
+            oDiv.style.width = '400px';
+            oDiv.style.height = '400px';
+        }
+
+
+    </script>
+</body>
+</html>
