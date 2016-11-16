@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #div1{
+                width: 200px;
+                height: 200px;
+                background: #ff0000;
+                border: 1px solid #000;
+                word-break: break-all;
+            }
+            /*#div1:hover{*/
+                /*background: #00ff00;*/
+            /*}*/
+            #div1::first-letter{
+                background: #00ff00;
+            }
+            #ipt{
+                background: #ff0000;
+            }
+            #ipt:focus{
+                background: #00ff00;
+            }
+            #div1::after{
+                content: '<div>kkk</div>';
+                display: block;
+            }
+            /*#ul1{*/
+                /*overflow: hidden;*/
+            /*}*/
+            #ul1 li{
+                float: left;
+
+            }
+            .clearfix::after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .clearfix{
+                zoom: 1;
+            }
+            #div2{
+                width: 200px;
+                height: 200px;
+                text-shadow: 5px 5px 5px #000;
+                background: rgba(0, 255, 0, .5);
+                overflow: hidden;
+                text-overflow: clip;
+                white-space: nowrap;
+            }
+            /*h1{*/
+                /*clear: both;*/
+            /*}*/
+        </style>
+    </head>
+    <body>
+        <div id="div1">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+        <input type="text" id="ipt">
+
+        <ul id="ul1" class="clearfix">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <h1>hhhhh</h1>
+
+        <div id="div2">ababadgasdfasdf</div>
+
+    </body>
+</html>
