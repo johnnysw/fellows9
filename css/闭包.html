@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+
+
+<script>
+
+    var oUl = document.getElementById('ul1');
+    var aLi = oUl.getElementsByTagName('li');
+
+    for(var i=0;i<aLi.length;i++){
+//        aLi[i].index = i;
+        (function(index){
+            aLi[index].onclick = function(){
+                console.log(index);
+                index = null;
+            }
+        })(i);
+
+    }
+
+    //闭包--从表面上看，外部函数内部有一个内部函数，内部函数调用外部函数的局部变量，
+    //当外部函数执行完成后，局部变量不被释放
+
+
+    function aa(i){
+        var i
+        var a = 6;
+    }
+    aa();
+    console.log(a);
+
+
+
+</script>
+</body>
+</html>
