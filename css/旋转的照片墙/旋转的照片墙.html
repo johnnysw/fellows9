@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            background: url('img/bg.jpg');
+            position: relative;
+        }
+
+        #container .img{
+            width: 125px;
+            height: 125px;
+            border: 5px solid #fff;
+            position: absolute;
+            left:-150px;
+            top:-150px;
+            -webkit-transition: all 1.5s ease-in-out;
+            /*background: url('img/thumbs/1.jpg');*/
+        }
+
+        #container .img span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            -webkit-transition: opacity 1.5s ease-in-out;
+            /*background: url(img/1.jpg) 0px 0px no-repeat;*/
+        }
+
+        #next,#prev{
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            top:50%;
+            margin-top: -40px;
+            display: none;
+        }
+        #next{
+            border-radius: 8px 0 0 8px;
+            background: url(img/next.png) center no-repeat #fff;
+            right:0;
+        }
+        #prev{
+            border-radius: 0 8px 8px 0;
+            background: url(img/prev.png) center no-repeat #fff;
+            left:0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+    </div>
+    <div id="next"></div>
+    <div id="prev"></div>
+    <script>
+
+        var oContainer = document.getElementById('container');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var sum = 0;
+        var iNow = 0;
+
+        for(var i=0;i<24;i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                sum++;
+                if(sum == 48){
+                    //图片全部加载完成，执行动画
+                    loadSuccess();
+                }
+            }
+            oImg.src = 'img/'+(i+1)+'.jpg';
+        }
+
+        for(var i=0;i<24;i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                sum++;
+                if(sum == 48){
+                    //图片全部加载完成，执行动画
+                    loadSuccess();
+                }
+            }
+            oImg.src = 'img/thumbs/'+(i+1)+'.jpg';
+        }
+        //获取行高 和 列宽
+        var colWidth = (oContainer.offsetWidth - 6 * 125)/7;
+        var rowHeight = (oContainer.offsetHeight - 4 * 125)/5;
+        var index = 0;
+
+        //执行开始动画函数
+        function loadSuccess(){
+            // 双重for循环,控制每个div的行和列
+            for(var i=0;i<4;i++){
+                for(var j=0;j<6;j++){
+                    var oDiv = document.createElement('div');
+                    oDiv.className = 'img';
+                    oDiv.pos = {
+                        //计算每张图片的目标位置
+                        left: colWidth + j*(125 + colWidth),
+                        top: rowHeight + i*(125 + rowHeight)
+                    };
+                    //存入每个div的行列坐标，方便下面调用
+                    oDiv.rowCol = {
+                        row: i,
+                        col: j
+                    }
+                    //存入一个图片的索引
+                    oDiv.imgIndex = index;
+
+                    oDiv.style.background = 'url(img/thumbs/'+(index+1)+'.jpg)';
+                    //给每个div绑定一个点击事件
+                    oDiv.onclick = fn;
+                    oDiv.innerHTML = "<span></span>";
+                    oContainer.appendChild(oDiv);
+                    index++;
+                }
+
+            }
+
+            var aDiv =  oContainer.getElementsByTagName('div');
+            var timer = setInterval(function(){
+                index--;//之前的index==24，所以先要减一；
+                aDiv[index].style.left = aDiv[index].pos.left + 'px';
+                aDiv[index].style.top = aDiv[index].pos.top + 'px';
+                //随机生成-20 到 +20之间的随机数，设置旋转角度
+                aDiv[index].style.WebkitTransform = "rotate("+ parseInt((Math.random() * 40 - 20))+"deg)";
+                if(index == 0){
+                    clearInterval(timer);
+                }
+            },100);
+
+            var bFlag = true;//判断div是不是点过。
+
+            //给每个div绑定一个点击事件
+            function fn(){
+                if(bFlag){
+                    var width = (oContainer.offsetWidth - 750)/2;
+                    var height = (oContainer.offsetHeight - 500)/2;
+                    //给div换位置
+                    for(var i=0;i<24;i++){
+                        aDiv[i].style.left = aDiv[i].rowCol.col * 125 + width +'px';
+                        aDiv[i].style.top = aDiv[i].rowCol.row * 125 + height +'px';
+                        aDiv[i].style.WebkitTransform = "rotate(0deg)";
+                        aDiv[i].style.border = "1px solid #fff";
+
+                        var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 1;
+                        //取出点击图片的索引
+                        var spanLeft = -aDiv[i].rowCol.col * 125;
+                        var spanTop = -aDiv[i].rowCol.row * 125;
+                        oSpan.style.background = 'url(img/'+(this.imgIndex+1)+'.jpg) '+spanLeft+'px '+spanTop+'px no-repeat';
+                    }
+                    iNow = this.imgIndex;
+                    oNext.style.display = 'block';
+                    oPrev.style.display = 'block';
+                }else{
+                    for(var i=0;i<24;i++){
+                        aDiv[i].style.left = aDiv[i].pos.left + 'px';
+                        aDiv[i].style.top = aDiv[i].pos.top + 'px';
+                        aDiv[i].style.WebkitTransform = "rotate("+ parseInt((Math.random() * 40 - 20))+"deg)";
+                        aDiv[i].style.border = "5px solid #fff";
+                        var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 0;
+                    }
+                    oNext.style.display = 'none';
+                    oPrev.style.display = 'none';
+                }
+                bFlag = !bFlag;
+            }
+
+            //点击切换大图
+            oNext.onclick = oPrev.onclick = function(){
+                if(this == oNext){
+                    iNow++;
+                    if(iNow == aDiv.length){
+                       iNow = 0;
+                    }
+                }else{
+                    iNow--;
+                    if (iNow == -1) {
+                        iNow = aDiv.length - 1;
+                    }
+                }
+
+                var arr = [];
+                for(var i=0;i<24;i++){
+                    arr.push(i);
+                }
+
+                arr.sort(function(a,b){
+                    return Math.random() - 0.5;
+                });
+
+
+               var timer2 =  setInterval(function(){
+                    var random = arr.pop();
+                    var oSpan = aDiv[random].getElementsByTagName('span')[0];
+                    //取出点击图片的索引
+                    var spanLeft = -aDiv[random].rowCol.col * 125;
+                    var spanTop = -aDiv[random].rowCol.row * 125;
+                    oSpan.style.background = 'url(img/'+(iNow+1)+'.jpg) '+spanLeft+'px '+spanTop+'px no-repeat';
+                    if(arr.length == 0){
+                        clearInterval(timer2);
+                    }
+
+                },30);
+
+            };
+
+        }
+
+
+
+    </script>
+</body>
+</html>
