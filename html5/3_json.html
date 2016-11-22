@@ -9,26 +9,26 @@
     <!--用js的对象描述数据结构-->
     <script>
 
-//        var person = {
-//            name:'zhangsan',
-//            age:17,
-//            hobbies:['sing','dance'],
-//            friends:[
-//                {name:'lisi',age:15},
-//                {name:'wangwu' ,age:18}
-//            ],
-//            father:{name:'zxx',age:66}
-//        }
-//
-//        var obj = '{"name":"zhangsan","age":"15"}';
-//        console.log(JSON.parse(obj));
+        var person = {
+            name:'zhangsan',
+            age:17,
+            hobbies:['sing','dance'],
+            friends:[
+                {name:'lisi',age:15},
+                {name:'wangwu' ,age:18}
+            ],
+            father:{name:'zxx',age:66}
+        }
+
+        var obj = '{"name":"zhangsan","age":"15"}';
+        //console.log(JSON.parse(obj));
 //
 //        var str = "alert('aaa')";
 //        eval(str);
-        var a = "abc"
+        var a = "abc";
         var b = a;
 
-        //console.log(JSON.stringify(person));
+       // console.log(JSON.stringify(person));
         var obj = {
             name:'zhangsan',
             age:14,
@@ -44,21 +44,28 @@
 
 
         //console.log(obj.name);
-        console.log(obj1.father.name);
-
+        //console.log(obj1.father.name);
 
         function clone(obj){
-            var obj1 = {};
+            var obj2 = {};
             for(p in obj){
                 if(typeof(obj[p]) == 'object'){
-                    obj1[p] = clone(obj[p]);
+                    obj2[p] = clone(obj[p]);
                     //obj1.father = clone(obj.father);
                 }else{
-                    obj1[p] = obj[p];
+                    obj2[p] = obj[p];
                 }
             }
-            return obj1;
+            return obj2;
         }
+
+       // console.log(JSON.parse(JSON.stringify(obj)());
+        var obj3 = JSON.parse(JSON.stringify(obj));
+        obj.name="123";
+
+        console.log(obj3.name);
+
+
 
 
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="aa">111</div>
+<div class="aa">222</div>
+<div class="aa">333</div>
+<div id="div1" class="a b c">
+
+</div>
+<script>
+   var oA =  document.querySelector('.aa');
+   var aA = document.querySelectorAll('.aa');
+   var oDiv = document.getElementById('div1');
+   // oA.style.background = "red";
+    for(var i=0; i<aA.length; i++){
+        aA[i].style.background = "yellow";
+    }
+    //console.log(oDiv.classList.length);
+   oDiv.classList.toggle('d');
+
+</script>
+
+</body>
+</html>

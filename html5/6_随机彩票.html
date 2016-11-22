@@ -21,6 +21,7 @@
                 var num = Math.floor(Math.random()*35) + 1;
                 arr.push(num);
             }
+            //修改页面的hash值
             location.hash = hash;
             obj[hash] = arr;
 //            obj = {
@@ -30,12 +31,13 @@
             oDiv.innerHTML = arr;
         }
         window.onhashchange = function(){
+            //取到当前hash值
             var hash = location.hash;
-            var str = obj[hash.substr(1)]
+            //#0.609625002278023
+            var str = obj[hash.substr(1)];
             //console.log(obj[hash.substr(1)]);
             if(str){
-                oDiv.innerHTML = obj[hash.substr(1)];
-
+                oDiv.innerHTML = str;
             }else{
                 oDiv.innerHTML = '';
             }
