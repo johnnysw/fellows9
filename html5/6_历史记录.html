@@ -52,7 +52,6 @@
 <script>
 
     $("a").on('click', function () {
-
         var href = $(this).attr('href');
 
         $("body,html").animate({
@@ -67,10 +66,8 @@
     window.onpopstate = function(e){
         $("body,html").animate({
             scrollTop: e.state
-        })
-
+        });
     }
-
 </script>
 
 
