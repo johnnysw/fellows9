@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form id="form1" action="index.php">
+    用户名：<input id="username" type="text"/></br></br>
+    密码：<input id="password" type="text"/></br></br>
+    两周免登陆<input id="check" type="checkbox"/>
+    <!--<submit id="btn">登录</submit>-->
+    <input id="btn" type="submit"/>
+</form>
+<script>
+    var oBtn = document.getElementById('btn');
+    var oCheck = document.getElementById('check');
+    var oUserName = document.getElementById('username');
+    var oForm1 = document.getElementById('form1');
+    var oPwd = document.getElementById('password');
+    function getCookie(key){
+        //age=14; name=aa;  ['age=14', 'name=aa']
+        var str = document.cookie;
+        var arr = str.split('; ');
+        for(var i=0; i<arr.length; i++){ // ['age=14','name=aa']
+            var arr1 = arr[i].split('=');//['age','14'] ['name','aa']
+            if(arr1[0] == key){
+                return arr1[1];
+            }
+        }
+    }
+    function setCookie(key,value,day){
+
+        var str = key +"="+value +";";
+        if(day){
+            var now = new Date();
+
+            now.setDate(now.getDate()+day);
+            //console.log(now);
+            str += 'expires='+now;
+        }
+        document.cookie = str;
+    }
+
+    oForm1.onsubmit = function(){
+        if(oCheck.checked){
+            var name = oUserName.value;
+            var pwd = oPwd.value;
+            setCookie('name',name,14);
+            setCookie('password',pwd,14);
+
+        }
+    }
+    var name = getCookie('name');
+    var psd = getCookie('password');
+    if(name && psd){
+        oUserName.value = name;
+        oPwd.value = psd;
+        oForm1.submit();
+    }
+
+
+</script>
+
+
+</body>
+</html>
