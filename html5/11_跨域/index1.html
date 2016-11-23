@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<iframe id="iframe1" src="sub.html" frameborder="0"></iframe>
+<button id="btn">click</button>
+<script>
+    var oIframe = document.getElementById('iframe1');
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function(){
+        oIframe.contentWindow.document.body.style.background = "red";
+
+    }
+
+    function aa(data){
+        alert(data);
+    }
+</script>
+
+</body>
+</html>
