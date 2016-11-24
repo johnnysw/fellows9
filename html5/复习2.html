@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">div</div>
+    <ul id="ul1">
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+    </ul>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        var aLi = document.getElementsByTagName("li");
+//        console.log(typeof aLi);
+        var arr = [1, 2, 4];
+//        console.log(arr instanceof Array);
+
+        document.getElementsByClassName("aa");
+        document.getElementsByName("aa");
+
+        document.querySelector("#div1");
+        document.querySelectorAll(".aa");
+
+
+        var oH1 = document.createElement("h1");
+        oH1.innerHTML = "asdfasf";
+        oDiv1.appendChild(oH1);
+
+        oDiv1.removeChild(oH1);
+
+        oH1.cloneNode();
+
+        var oUl1 = document.getElementById("ul1");
+//        console.log(oUl1.children);
+        console.log(oUl1.childNodes);
+
+
+
+
+    </script>
+</body>
+</html>
