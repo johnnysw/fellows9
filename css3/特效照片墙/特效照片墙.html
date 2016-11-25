@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 750px;
+            height: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        #img{
+            width: 750px;
+            height: 500px;
+            background: url(img/1.jpg);
+            position: relative;
+        }
+        #btn{
+            position: absolute;
+            left:50%;
+            margin-left: -90px;
+            bottom:20px;
+        }
+        #btn button{
+            width: 60px;
+            height: 40px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 20px;
+            outline: none;
+        }
+        #btn1{
+            background: red;
+            margin-right: 60px;
+        }
+        #btn2{
+            background: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="img"></div>
+        <div id="btn">
+            <button id="btn1">翻转</button>
+            <button id="btn2">爆炸</button>
+        </div>
+    </div>
+    <script>
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oImg = document.getElementById('img');
+        var iNow = 0;
+        var bFlag = true;
+        oBtn1.onclick = function(){
+            if(bFlag){
+                bFlag = false;
+                oImg.innerHTML = '';
+                iNow++;
+                oImg.style.background = 'url(img/'+ (iNow) +'.jpg)';
+                if(iNow == 5){
+                    iNow = 0;
+                }
+                for(var j=0;j<4;j++){
+                    for(var i=0;i<6;i++){
+                        var oDiv = document.createElement('div');
+                        oDiv.style.width = '125px';
+                        oDiv.style.height = '125px';
+                        oDiv.style.position = 'absolute';
+                        oDiv.style.left = i*125+'px';
+                        oDiv.style.top = j*125+'px';
+                        oDiv.style.background = 'url(img/'+ (iNow +1) +'.jpg) '+ (-i*125) +'px '+ (-j*125) +'px';
+                        oDiv.style.WebkitTransform = 'rotateY(-180deg)';
+                        oDiv.style.WebkitTransition = 'all 1s ease';
+                        oDiv.style.WebkitBackfaceVisibility ='hidden';
+                        oImg.appendChild(oDiv);
+                    }
+                }
+                var index = 0;
+                var aDiv = oImg.getElementsByTagName('div');
+                var timer = setInterval(function(){
+                    aDiv[index].style.WebkitTransform = 'rotateY(0deg)';
+                    index++;
+                    if(index == 24){
+                        clearInterval(timer);
+                    }
+                    aDiv[23].addEventListener('webkitTransitionEnd',function(){
+                        bFlag = true;
+                    },false);
+                },30);
+
+            }
+        }
+
+        oBtn2.onclick = function(){
+            oImg.innerHTML = '';
+            bFlag = true;
+            iNow++;
+            for(var j=0;j<4;j++){
+                for(var i=0;i<6;i++){
+                    var oDiv = document.createElement('div');
+                    oDiv.style.width = '125px';
+                    oDiv.style.height = '125px';
+                    oDiv.style.position = 'absolute';
+                    oDiv.style.left = i*125+'px';
+                    oDiv.style.top = j*125+'px';
+                    oDiv.style.background = 'url(img/'+ (iNow) +'.jpg) '+ (-i*125) +'px '+ (-j*125) +'px';
+                    oDiv.style.WebkitTransition = 'all 1s ease';
+                    oImg.appendChild(oDiv);
+                }
+            }
+            if(iNow == 5){
+                iNow = 0;
+            }
+
+            oImg.style.background = 'url(img/'+ (iNow+1) +'.jpg)';
+
+            var index = 0;
+            var aDiv = oImg.getElementsByTagName('div');
+            var timer = setInterval(function(){
+                aDiv[index].style.left = random(-500,1000) +'px';
+                aDiv[index].style.top = random(-500,1000) +'px';
+                aDiv[index].style.WebkitTransform = 'rotateY(360deg) scale(2)';
+                aDiv[index].style.opacity = 0;
+                index++;
+                if(index ==24){
+                    clearInterval(timer);
+                }
+            },0);
+        }
+
+
+        function random(x,y){
+            return Math.floor(Math.random() * (y-x+1) + x);
+        }
+
+    </script>
+</body>
+</html>
