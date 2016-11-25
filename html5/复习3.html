@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <script>
+        var oDiv = document.getElementById("div1");
+//        console.log(oDiv.children.length);
+//        console.log(oDiv.childNodes.length);
+//        console.log(oDiv.firstElementChild);
+//        var oH1 = document.getElementById("h1");
+//        console.log(oH1.nextSibling);
+
+        //找到elem的元素兄弟节点
+        function next(elem){
+            do{
+                elem = elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+//        console.log(next(oH1));
+
+        //找到elem的第一个元素节点的孩子
+        function first(elem){
+            elem = elem.firstChild;
+            return elem && (elem.nodeType == 1 ? elem : next(elem));
+        }
+
+        console.log(first(oDiv));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            height: 50px;
+            position: fixed;
+        }
+        li{
+            float: left;
+            width: 100px;
+
+        }
+        #div1{
+            height: 400px;
+            background: #ff0000;
+        }
+        #div2{
+            height: 500px;
+            background: #0000ff;
+        }
+        #div3{
+            height: 600px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#div1">link1</a></li>
+    <li><a href="#div2">link2</a></li>
+    <li><a href="#div3">link3</a></li>
+</ul>
+
+<div id="div1">
+
+</div>
+<div id="div2">
+
+</div>
+<div id="div3">
+
+</div>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+
+    $("a").on('click', function () {
+        var href = $(this).attr('href');
+
+        $("body,html").animate({
+            scrollTop:$(href).offset().top
+        });
+
+        history.pushState($(href).offset().top,'');
+
+        return false;
+    });
+
+    window.onpopstate = function(e){
+        $("body,html").animate({
+            scrollTop: e.state
+        });
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<iframe id="iframe1" src="http://www.b.com/index5.html"></iframe>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var oIframe = document.getElementById('iframe1');
+
+			oIframe.contentWindow.postMessage('aa',"http://www.b.com");
+		}
+	</script>
+</body>
+</html>
