@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #container{
+            width: 805px;
+            height: 300px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        #container li{
+            width: 160px;
+            height: 300px;
+            border-right: 1px solid #fff;
+            float: left;
+            position: relative;
+            -webkit-transition: all 1s ease;
+        }
+
+        #container li a{
+            width: 100%;
+            height: 30px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            line-height: 30px;
+        }
+
+        #container:hover li{
+            width: 50px;
+        }
+        #container li:hover{
+            width: 600px;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul id="container">
+    <li><img src="img/1.jpg"><a>1</a></li>
+    <li><img src="img/2.jpg"><a>2</a></li>
+    <li><img src="img/3.jpg"><a>3</a></li>
+    <li><img src="img/4.jpg"><a>4</a></li>
+    <li><img src="img/5.jpg"><a>5</a></li>
+</ul>
+
+</body>
+</html>
