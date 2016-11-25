@@ -71,22 +71,29 @@
                 for(var j=0;j<4;j++){
                     for(var i=0;i<6;i++){
                         var oDiv = document.createElement('div');
-                        oDiv.style.width = '125px';
-                        oDiv.style.height = '125px';
-                        oDiv.style.position = 'absolute';
-                        oDiv.style.left = i*125+'px';
-                        oDiv.style.top = j*125+'px';
-                        oDiv.style.background = 'url(img/'+ (iNow +1) +'.jpg) '+ (-i*125) +'px '+ (-j*125) +'px';
-                        oDiv.style.WebkitTransform = 'rotateY(-180deg)';
-                        oDiv.style.WebkitTransition = 'all 1s ease';
-                        oDiv.style.WebkitBackfaceVisibility ='hidden';
+                        setStyle(oDiv,{
+                                width:'125px',
+                                height:'125px',
+                                position:'absolute',
+                                left:i*125+'px',
+                                top:j*125+'px',
+                                background:'url(img/'+ (iNow +1) +'.jpg) '+ (-i*125) +'px '+ (-j*125) +'px'
+//                                WebkitTransform:'rotateY(-180deg)',
+//                                WebkitTransition:'all 1s ease',
+//                                WebkitBackfaceVisibility:'hidden'
+                        });
+                        setStyle3(oDiv,'transform','rotateY(-180deg)');
+                        setStyle3(oDiv,'transition','all 1s ease');
+                        setStyle3(oDiv,'backfaceVisibility','hidden');
+
                         oImg.appendChild(oDiv);
                     }
                 }
                 var index = 0;
                 var aDiv = oImg.getElementsByTagName('div');
                 var timer = setInterval(function(){
-                    aDiv[index].style.WebkitTransform = 'rotateY(0deg)';
+//                    aDiv[index].style.WebkitTransform = 'rotateY(0deg)';
+                    setStyle3(aDiv[index],'transform','rotateY(0deg)');
                     index++;
                     if(index == 24){
                         clearInterval(timer);
@@ -106,13 +113,17 @@
             for(var j=0;j<4;j++){
                 for(var i=0;i<6;i++){
                     var oDiv = document.createElement('div');
-                    oDiv.style.width = '125px';
-                    oDiv.style.height = '125px';
-                    oDiv.style.position = 'absolute';
-                    oDiv.style.left = i*125+'px';
-                    oDiv.style.top = j*125+'px';
-                    oDiv.style.background = 'url(img/'+ (iNow) +'.jpg) '+ (-i*125) +'px '+ (-j*125) +'px';
-                    oDiv.style.WebkitTransition = 'all 1s ease';
+
+                    setStyle(oDiv,{
+                        width:'125px',
+                        height:'125px',
+                        position:'absolute',
+                        left:i*125+'px',
+                        top:j*125+'px',
+                        background:'url(img/'+ (iNow) +'.jpg) '+ (-i*125) +'px '+ (-j*125) +'px'
+//                        WebkitTransition:'all 1s ease'
+                    });
+                    setStyle3(oDiv,'transition','all 1s ease');
                     oImg.appendChild(oDiv);
                 }
             }
@@ -125,10 +136,13 @@
             var index = 0;
             var aDiv = oImg.getElementsByTagName('div');
             var timer = setInterval(function(){
-                aDiv[index].style.left = random(-500,1000) +'px';
-                aDiv[index].style.top = random(-500,1000) +'px';
-                aDiv[index].style.WebkitTransform = 'rotateY(360deg) scale(2)';
-                aDiv[index].style.opacity = 0;
+                setStyle(aDiv[index],{
+                        left:random(-500,1000) +'px',
+                        top:random(-500,1000) +'px',
+//                        WebkitTransform:'rotateY(360deg) scale(2)',
+                        opacity:0
+                });
+                setStyle3(aDiv[index],'transform','rotateY(360deg) scale(2)');
                 index++;
                 if(index ==24){
                     clearInterval(timer);
@@ -136,6 +150,21 @@
             },0);
         }
 
+
+        function setStyle3(elem,prop,value){
+            var arr = ['Webkit','Moz','MS','O',''];
+            for(var i=0;i<arr.length;i++){
+                elem.style[arr[i]+prop.charAt(0).toUpperCase()+prop.substring(1)] = value;
+            }
+
+        }
+
+
+        function setStyle(elem,obj){
+            for(p in obj){
+                elem.style[p] = obj[p];
+            }
+        }
 
         function random(x,y){
             return Math.floor(Math.random() * (y-x+1) + x);
