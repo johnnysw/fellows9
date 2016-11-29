@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background: #000;
+        }
+        #container li{
+            float: left;
+            margin-right: 2px;
+            margin-bottom: 2px;
+        }
+        #container li:nth-child(4n){
+            margin-right: 0;
+        }
+        #container li img{
+            width: 100%;
+            height: 100%;
+        }
+        #big-img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="container"></ul>
+    <div id="big-img"></div>
+    <script src="zepto.min.js"></script>
+    <script>
+
+        $(function(){
+            var $container = $('#container');
+            var $bigImg = $('#big-img');
+            var html = '';
+            var ipadding = 2;
+            var $iNow = 0;
+            for(var i=0;i<24;i++){
+                html = $("<li><img src='img/"+(i+1)+".jpg'/></li>");
+                html.css({
+                    width: ($("body").width() - 3 * ipadding) / 4,
+                    height: ($("body").width() - 3 * ipadding) / 4
+                });
+                $container.append(html);
+            }
+
+            $('li').on('singleTap',function(){
+                $iNow = $(this).index();
+                $container.hide();
+                $bigImg.show().css({
+                    background:'url(img/'+ ($iNow+1) +'.jpg) center no-repeat',
+                    backgroundSize:'contain'
+                });
+
+            });
+
+            $bigImg.on('tap',function(){
+                $bigImg.hide();
+                $container.show();
+            }).on('swipeLeft',function(){
+
+                $iNow++;
+                if($iNow == 24){
+                    $iNow = 0;
+                }
+                $bigImg.css({
+                    background:'url(img/'+ ($iNow+1) +'.jpg) center no-repeat',
+                    backgroundSize:'contain'
+                });
+
+            }).on('swipeRight',function(){
+                $iNow--;
+                if($iNow == -1){
+                    $iNow = 23;
+                }
+                $bigImg.css({
+                    background:'url(img/'+ ($iNow+1) +'.jpg) center no-repeat',
+                    backgroundSize:'contain'
+                });
+
+            });
+
+
+        });
+
+
+
+    </script>
+</body>
+</html>
