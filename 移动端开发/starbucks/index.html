@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    
+</head>
+<body>
+<script>
+    //console.log(navigator.userAgent);
+   // console.log(/mobile|Android/ig.test(navigator.userAgent));
+    function isMobile(){
+        if(/mobile|Android/ig.test(navigator.userAgent)){
+            return true;
+        }
+        return false;
+    }
+    var script = document.createElement('script');
+//    if(isMobile()){
+//        script.src="js/zepto.min.js";
+//    }else{
+//        script.src="js/jquery.min.js";
+//    }
+    script.onload = function(){
+        var idxJs =  document.createElement('script');
+        idxJs.src="js/index.js";
+        document.body.appendChild(idxJs);
+    }
+    script.src = isMobile()?"js/zepto.min.js": "js/jquery.min.js";
+    document.body.appendChild(script);
+
+
+</script>
+<!--<script src="js/jquery.min.js"></script>-->
+<!--<script src="js/index.js"></script>-->
+</body>
+</html>
