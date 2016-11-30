@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding: 0;
+}
+img{
+    border: none;
+}
+#content{
+    width: 100%;
+}
+#left,#right{
+    float: left;
+    width: 50%;
+    position: relative;
+
+}
+#left img,#right img{
+    width: 100%;
+    vertical-align:bottom
+}
+.txt{
+    width: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    bottom: 0;
+    height: 100%;
+}
+.txt-box{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.txt-wrap{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    #left,#right{
+        width: 100%;
+    }
+}
