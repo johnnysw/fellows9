@@ -16,7 +16,8 @@ img{
 }
 #left img,#right img{
     width: 100%;
-    vertical-align:bottom
+    display: block;
+    /*vertical-align:bottom*/
 }
 .txt{
     width: 100%;
