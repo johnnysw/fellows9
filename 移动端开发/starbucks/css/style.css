@@ -4,6 +4,17 @@
 }
 img{
     border: none;
+    display: block;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+    font-weight: 400;
 }
 #content{
     width: 100%;
@@ -41,5 +52,342 @@ img{
     #left,#right{
         width: 100%;
         float: none;
+    }
+}
+
+
+
+
+/**header start*/
+#header{
+    height: 100px;
+    padding: 0 38px;
+}
+#header>div{
+    float: left;
+}
+#menu{
+    width: 40%;
+    margin-top:37px;
+}
+#menu span{
+    margin:4px 0 0 3px;
+    display: inline-block;
+    font-size: 12px;
+
+}
+#logo{
+    width: 20%;
+    position: relative;
+    height: 100%;
+}
+#logo img{
+    width: 73px;
+    position: absolute;
+    left:50%;
+    top: 50%;
+    margin-left: -36px;
+    margin-top:-36px;
+
+}
+#header #login{
+    width: 40%;
+    float: right;
+    text-align: right;
+    margin-top:37px;
+    color:#4e4e4e;
+    font-size: 16px;
+    line-height: 20px;
+}
+#header #login span.or{
+    margin: 0 3px;
+}
+#header #login a{
+    color:#a98e67;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/**header end*/
+/**banner start*/
+#banner{
+    width: 100%;
+}
+#banner #small{
+    display: none;
+}
+#banner img{
+    width: 100%;
+}
+
+
+/**banner end*/
+/**vip end*/
+#vip{
+    width: 100%;
+    overflow: hidden;
+}
+#vip img{
+    width: 100%;
+    height: auto;
+}
+/**vip end*/
+/**club end*/
+#club{
+    background: #202020;
+    padding: 90px 35px;
+    text-align: center;
+
+}
+#club h2{
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 38px;
+    color: #fffffe;
+    margin:0 0 8px;
+}
+#club p{
+    font-size: 18px;
+    line-height: 32px;
+    color: #999;
+}
+.btns{
+    margin-top: 55px;
+}
+
+.btns a{
+    padding: 14px 40px;
+    border: 2px solid #a98e67 ;
+    color:#a98e67;
+    display: inline-block;
+    margin:0 14px;
+}
+.btns a:hover{
+    color:#ffe;
+    background: #a98e67;
+ }
+
+
+/**club end*/
+/**app start*/
+#app{
+    position: relative;
+    background: #e0e0e0;
+}
+#a-text{
+    width: 1130px;
+    margin: 0 auto;
+    /*background: #ff0000;*/
+}
+#a-box{
+    width: 55%;
+    padding: 210px 0;
+}
+#a-box h3{
+    color:#a98e67;
+    font-size:12px;
+    font-weight: 900;
+    font-family: AvenirBlack, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+    margin-bottom: 15px;
+}
+#a-box p{
+    font-size: 26px;
+    line-height: 40px;
+    color: #3d3d3d;
+    margin-bottom: 130px;
+}
+#a-btns a{
+    padding:12px 40px; ;
+    margin: 0 30px 0 0;
+}
+#a-img{
+    width: 47%;
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+}
+#a-load{
+    display: none;
+}
+/**app end*/
+/**photo start*/
+#photo{
+    overflow: hidden;
+}
+.p-img{
+    width: 50%;
+    padding-top: 50%;
+    height: 0;
+    background-size: cover;
+    position: relative;
+    float: left;
+}
+.i-left{
+    background-image: url("../images/homepage-grid.jpg");
+}
+.i-right{
+    background-image: url("../images/left.jpeg");
+}
+.p-box{
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.p-text{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/**photo end*/
+
+/**slide start*/
+#slide{
+    padding: 80px 10px;
+}
+.slide-box{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 280px;
+}
+.slide-box ul{
+    width:2320px;
+    position: absolute;
+}
+#slide li{
+    width: 280px;
+    height: 280px;
+    float: left;
+    margin-right:10px;
+}
+#slide li img{
+    width: 100%;
+    height: 100%;
+}
+#tab{
+    text-align: center;
+    margin-top: 30px;
+}
+#tab span{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #8f8f8f;
+    display: inline-block;
+}
+#tab span.tabs{
+    display: none;
+}
+/**slide end*/
+
+@media (max-width: 1200px){
+    #a-text{
+        width: 918px;
+    }
+}
+
+@media (max-width: 991px) {
+    #banner #small{
+        display: block;
+    }
+    #banner #big{
+        display: none;
+    }
+    #a-text{
+        width: 720px;
+    }
+}
+@media (max-width: 767px) {
+    #header #login{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    #header #login a{
+        font-size: 12px;
+    }
+    #vip img{
+        height: 135px;
+        width: auto;
+    }
+    #club{
+        padding: 50px 35px;
+    }
+    .btns a{
+        width: 100%;
+        padding: 14px 0;
+        margin:0 ;
+    }
+    .btns a:nth-child(2){
+        margin-top: 22px;
+    }
+    /**app start*/
+    #app{
+        padding: 0 30px 80px 30px;
+    }
+    #a-text{
+        width: 100%;
+    }
+    #a-box{
+        padding: 80px 0 0;
+        width: 100%;
+    }
+    #a-box p{
+        margin-bottom: 10px;
+    }
+    #a-btns{
+        display: none;
+    }
+    #a-img{
+        position: static;
+        float: right;
+        width: 90%;
+    }
+    #a-load{
+        display: block;
+        clear: both;
+    }
+    #a-load a{
+        width: 30%;
+        border:2px solid #a98e67;
+        height: 43px;
+        line-height: 43px;
+        text-align: center;
+        display: block;
+        color:#a98e67;
+    }
+    #a-load a:hover{
+        color:#fffffe;
+        background: #a98e67;
+    }
+
+    /*app end**/
+    .p-img{
+        float: none;
+        width: 100%;
+        padding-top: 100%;
+    }
+
+}
+@media (max-width: 400px){
+    #logo img {
+        width:100%;
+        margin-top:-50%;
+
+    }
+}
+/**slide */
+@media (max-width: 1159px){
+    #tab span.three{
+        display: inline-block;
+    }
+}
+@media (max-width: 869px){
+    #tab span.four{
+        display: inline-block;
     }
 }
