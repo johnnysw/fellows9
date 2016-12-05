@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1000px;
+            height: 550px;
+            border: 1px solid;
+            margin: 0 auto;
+        }
+        #ground{
+            width: 1000px;
+            height: 500px;
+            /*background: orange;*/
+            position: relative;
+        }
+        #control{
+            width: 1000px;
+            height: 50px;
+            line-height: 50px;
+        }
+        #brand{
+            float: left;
+        }
+        #buttons{
+            float: right;
+        }
+        .block{
+            width: 20px;
+            height: 20px;
+            background: orange;
+            float: left;
+        }
+        .snake-block{
+            background: red;
+            position: absolute;
+        }
+        .food-block{
+            background: blue;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="ground">
+
+        </div>
+
+        <div id="control">
+            <div id="brand">javascript 贪吃蛇 by 唯创网讯</div>
+            <div id="buttons">
+                <button id="start">开始</button>
+                <button id="pause">暂停</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oGround = document.getElementById('ground');
+        var direction = 'right';
+        //初始化草场
+        for(var i=0;i<50 * 25;i++){
+            var oGdiv = document.createElement('div');
+            oGdiv.className = 'block';
+            oGround.appendChild(oGdiv);
+        }
+
+        //创建蛇
+        var snakeBody = [];
+        for(var i=0;i<3;i++){
+            var oSdiv = document.createElement('div');
+            oSdiv.className = 'block snake-block';
+            oSdiv.style.top = '60px';
+            oSdiv.style.left = 60 - i * 20 + 'px';
+            snakeBody.push(oSdiv);
+            oGround.appendChild(oSdiv);
+        }
+
+        //创建食物
+        var bFlag=false;
+        var iFoodLeft;
+        var iFoodTop;//标识食物是否重新生成；false代表不用
+        do{
+            bFlag = false;
+            iFoodLeft = parseInt(Math.random() * 50) * 20;
+            iFoodTop = parseInt(Math.random() * 25) * 20;
+            for(var i=0;i<snakeBody.length;i++){
+                if(snakeBody[i].offsetLeft == iFoodLeft && snakeBody[i].offsetTop == iFoodTop){
+                    bFlag = true;
+                }
+            }
+
+        }while(bFlag);
+
+        var oFdiv = document.createElement('div');
+        oFdiv.className = 'block food-block';
+        oFdiv.style.top = iFoodTop +'px';
+        oFdiv.style.left = iFoodLeft +'px';
+        oGround.appendChild(oFdiv);
+
+        //蛇移动
+        var next = null
+        function move(){
+            var snakeHead = snakeBody[0];
+            //找到下一个该去的位置
+            if(direction == 'right'){
+                next = {
+                    top:snakeHead.offsetTop,
+                    left:snakeHead.offsetLeft + 20
+                }
+            }else if(direction == 'left'){
+                next = {
+                    top:snakeHead.offsetTop,
+                    left:snakeHead.offsetLeft - 20
+                }
+            }else if(direction == 'top'){
+                next = {
+                    top:snakeHead.offsetTop - 20,
+                    left:snakeHead.offsetLeft
+                }
+            }else if(direction == 'down'){
+                next = {
+                    top:snakeHead.offsetTop + 20,
+                    left:snakeHead.offsetLeft
+                }
+            }
+
+
+            var oDiv = snakeBody.pop();
+            oDiv.style.left = next.left +'px';
+            oDiv.style.top = next.top +'px';
+
+            snakeBody.unshift(oDiv);
+
+        }
+
+        setInterval(move,200);
+        //蛇吃食物，增长身体
+
+        //判断蛇是否吃到自己，是否撞墙
+
+        //暂停开始
+
+        //控制蛇移动
+
+        document.onkeydown = function(e){
+            e = e || window.event;
+            var kc = e.which || e.keyCode;
+            if(kc == 37 && direction!='right'){
+                direction = 'left';
+            }else if(kc == 38 && direction!='down'){
+                direction = 'top';
+            }else if(kc == 39 && direction!='left'){
+                direction = 'right';
+            }else if(kc == 40 && direction!='top'){
+                direction = 'down';
+            }
+
+
+        }
+
+
+    </script>
+</body>
+</html>
