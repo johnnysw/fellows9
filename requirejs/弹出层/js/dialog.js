@@ -1,4 +1,4 @@
-define(["jquery"], function(){
+define(["jquery"], function($){
     function Dialog(settings){
         this.defaultSettings = {
             width: 400,
