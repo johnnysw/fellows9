@@ -21,18 +21,19 @@ define(["jquery"], function($){
             width: this.defaultSettings.width,
             height: this.defaultSettings.height
         }).append(this.$title).append(this.$content);
-        this.$title.html(this.defaultSettings.title).append(this.$item).append(this.$close);
+        this.$item.html(this.defaultSettings.title);
+        this.$title.append(this.$item).append(this.$close);
         if(this.defaultSettings.content){
             this.$content.load(this.defaultSettings.content);
         }
         $("body").append(this.$container);
-        var that = this;
+        // var that = this;
         this.$close.on("click", function(){
-            that.close();
-        });
+            this.close();
+        }.bind(this));
     };
     Dialog.prototype.close = function(){
-        $(this.$container).remove();
+        this.$container.remove();
     };
     return Dialog;
 
