@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*编写程序，计算10!(即 1*2*3＊·…10）的结果(10的阶乘)*/
+        function fac1(num){
+            var sum = 1;
+            for(var i=1; i<=num; i++){
+                sum *= i;//sum = sum * i
+            }
+            return sum;
+        }
+
+        /*
+         * 10！   10*9！  10 * fac(10 - 1)
+         * 9！    9 * 8！
+         * 8！    8 * 7！
+         * */
+        function fac2(num){/*递归方式*/
+            if(num == 1 || num == 0){
+                return 1;
+            }
+            return num * arguments.callee(num - 1);
+        }
+        var result = fac1(10);
+        document.write(result);
+
+        document.write("<br/>");
+
+        var result2 = fac2(10);
+        document.write(result2);
+
+
+        /*1.	编写程序，计算 1!+2!+3!+…..＋10！的结果。*/
+        function facSum(num){
+            var sum = 0;
+            for(var i=1; i<=num; i++){
+                sum += fac1(i);
+            }
+            return sum;
+        }
+        document.write(facSum(10));
+
+
+    </script>
+</body>
+</html>

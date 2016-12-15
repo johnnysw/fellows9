@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * 类：具有相同的属性和方法的对象的集合
+        * 对象：
+        *
+        * 人类---个人
+        *
+        * 原型链
+        *
+        * */
+
+//        var fn = function(){};
+        function People(name, age){
+            this.name = name;
+            this.age = age;
+            this.parent = {
+                name : "parent"
+            };
+            //特权方法
+//            this.showName = function(){//new Function("alert()")
+//                alert(1);
+//            };
+
+            function fn(){//私有方法
+
+            }
+        }
+        People.prototype.showName = function(){//全局方法
+            alert(this.name);
+        };
+//        People.prototype.parent = {
+//            name : "parent"
+//        };
+//        People.prototype.name = "xxx";
+
+
+
+        var p1 = new People(18);
+
+        console.log(People.prototype);
+        console.log(p1.__proto__);
+
+        console.log(People.prototype === p1.__proto__);
+//        p1.parent.name = "bbb";
+//        alert(p1.parent.name);
+
+//        var p2 = new People();
+//        p2.name = "aaa";
+//        alert(p2.parent.name);
+
+//        p1.showName = function(){
+//            alert(3);
+//        };
+
+//        p1.showName();
+
+//        var p2 = new People("lisi", 20);
+//        alert(p2.name);
+//        p2.showName();
+//        var now = new Date();
+
+        People.test = function(){//静态方法
+            alert("test");
+        };
+        var pp = new People("xx", "88");
+        People.test();
+
+        Math.random();
+        var now = new Date();
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #content{
+            background: red;
+            width: 100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">stop</button>
+    <div id="content">
+
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+
+    <script>
+        $('#content').on('click',function() {
+            $('#content').animate({
+                width: 400
+            }, 2000);
+            $('#content').animate({
+                height: 400
+            }, 2000);
+
+
+
+        });
+        $('#btn').on('click',function(){
+            $('#content').stop(true,false);
+        });
+
+    </script>
+</body>
+</html>

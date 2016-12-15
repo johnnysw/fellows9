@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        header{
+            background: #ff0000;
+            display: block;
+        }
+    </style>
+    <!--<script>-->
+        <!--document.createElement("header");-->
+    <!--</script>-->
+    <!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
+</head>
+<body>
+    <header>aaaaaaaa</header>
+
+
+    <form action="">
+        <!--<input type="text">-->
+        <!--<input type="password">-->
+        <!--<input type="radio">-->
+        <!--<input type="checkbox">-->
+        <!--<input type="email">-->
+        <!--<input type="url">-->
+        <!--<input type="number">-->
+        <!--<input type="range">-->
+        <!--<input type="date">-->
+        <!--<input type="color">-->
+
+        <!--<input type="text" placeholder="请输入">-->
+
+
+        <input type="submit">
+    </form>
+
+    <ul id="ul1">
+        <li class="aa">01</li>
+        <li>02</li>
+        <li class="aa">03</li>
+        <li>04</li>
+    </ul>
+    <div id="div1" class="aa bb cc">
+        <p>ppppp</p>
+    </div>
+    <script>
+/*        var oUl1 = document.querySelector("#ul1");
+        var aLi = oUl1.querySelectorAll(".aa");
+//        getElementsByClassName
+        for(var i=0; i<aLi.length; i++){
+//            if(aLi[i].className == "aa"){
+                aLi[i].style.background = "red"
+//            }
+        }*/
+
+//        var p = document.querySelector("#ul1 .aa");
+//        p.style.background = "red";
+//        var a = document.querySelectorAll("#ul1 .aa");
+            var oDiv1 = document.querySelector("#div1");
+            console.log(oDiv1.classList);
+
+            oDiv1.className = "dd";//addClass()
+    </script>
+</body>
+</html>

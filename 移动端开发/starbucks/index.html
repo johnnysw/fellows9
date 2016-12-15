@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+    
+</head>
+<body>
+<script>
+    //console.log(navigator.userAgent);
+   // console.log(/mobile|Android/ig.test(navigator.userAgent));
+    function isMobile(){
+        if(/mobile|Android/ig.test(navigator.userAgent)){
+            return true;
+        }
+        return false;
+    }
+    var script = document.createElement('script');
+//    if(isMobile()){
+//        script.src="js/zepto.min.js";
+//    }else{
+//        script.src="js/jquery.min.js";
+//    }
+    script.onload = function(){
+        var idxJs =  document.createElement('script');
+        idxJs.src="js/index.js";
+        document.body.appendChild(idxJs);
+    }
+    script.src = isMobile()?"js/zepto.min.js": "js/jquery.min.js";
+    document.body.appendChild(script);
+
+
+</script>
+<!--<script src="js/jquery.min.js"></script>-->
+<!--<script src="js/index.js"></script>-->
+
+<!--<div id="content">-->
+    <!--<div id="left">-->
+        <!--<img src="images/left.jpeg" alt=""/>-->
+        <!--<div class="txt">-->
+            <!--<div class="txt-box">-->
+                <!--<div class="txt-wrap">-->
+                    <!--<h3>星巴克天猫旗舰店限量供应中</h3>-->
+                    <!--<h2>随时随地来一杯手冲心意 </h2>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--<div id="right">-->
+        <!--<img src="images/homepage-grid.jpg" alt=""/>-->
+        <!--<div class="txt">-->
+            <!--<div class="txt-box">-->
+                <!--<div class="txt-wrap">-->
+                    <!--<h3>星巴克天猫旗舰店限量供应中</h3>-->
+                    <!--<h2>随时随地来一杯手冲心意 </h2>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div id="header">
+    <div id="menu">
+        <img src="images/menu_icon.svg" alt=""/>
+        <span>菜单</span>
+    </div>
+    <div id="logo">
+        <a href="#">
+            <img src="images/logo.svg" alt=""/>
+        </a>
+    </div>
+    <div id="login">
+
+        <span>星享俱乐部</span>
+        <div>
+            <a href="#">登录</a><span class="or">或</span><a href="#">注册</a>
+        </div>
+    </div>
+</div>
+<div id="banner">
+    <a href="" id="big">
+        <img src="images/top-big.jpg"/>
+
+    </a>
+    <a href="" id="small">
+        <img src="images/top-small.jpg" alt=""/>
+    </a>
+</div>
+<div id="vip">
+    <img src="images/img02.jpg" alt=""/>
+</div>
+<div id="club">
+    <h2>星享俱乐部</h2>
+    <p>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</p>
+    <div class="btns">
+        <a href="#">注册</a>
+        <a href="#">登录</a>
+    </div>
+</div>
+<div id="app">
+    <div id="a-text">
+        <div id="a-box">
+            <h3>星巴克中国官方应用</h3>
+            <p>更新或下载全新星巴克中国官方APP，开启更便捷的星巴克体验。将新购买的星礼卡轻松关联至您的账户，即时通过手机进行移动支付，查看消费记录，管理卡片。</p>
+            <div id="a-btns" class="btns">
+                <a href="#">IOS下载</a>
+                <a href="#">ANDROID下载</a>
+            </div>
+        </div>
+    </div>
+    <img id="a-img" src="images/app-img.png" alt=""/>
+    <div id="a-load">
+        <a href="#">下载应用</a>
+    </div>
+</div>
+<div id="photo">
+    <div class="p-img i-left">
+        <div class="p-box">
+            <div class="p-text">
+                <h3>星巴克天猫旗舰店限量供应中</h3>
+                <p>随时随地来一杯手冲心意 </p>
+            </div>
+        </div>
+    </div>
+    <div class="p-img i-right">
+        <div class="p-box">
+            <div class="p-text">
+                <h3>星巴克天猫旗舰店限量供应中</h3>
+                <p>随时随地来一杯手冲心意 </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="slide">
+    <div class="slide-box">
+        <ul>
+            <li><img src="images/img1.jpeg" alt=""/></li>
+            <li><img src="images/img2.jpeg" alt=""/></li>
+            <li><img src="images/img3.jpg" alt=""/></li>
+            <li><img src="images/img4.jpg" alt=""/></li>
+            <li><img src="images/img5.jpg" alt=""/></li>
+            <li><img src="images/img6.jpg" alt=""/></li>
+            <li><img src="images/img7.jpg" alt=""/></li>
+            <li><img src="images/img4.jpg" alt=""/></li>
+        </ul>
+    </div>
+    <div id="tab">
+        <span></span>
+        <span></span>
+        <span class="tabs three"></span>
+        <span class="tabs four"></span>
+    </div>
+</div>
+
+
+</body>
+</html>

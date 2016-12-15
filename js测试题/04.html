@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <form name="myForm" id="form" onsubmit=" return test()">
+
+        <input  type="radio" name="sex"/>aa
+        <input  type="radio" name="sex"/>bb
+        <input  type="radio" name="sex"/>cc
+        <input  type="radio" name="sex"/>dd
+        <input type="submit" value="提交">
+    </form>
+
+    <script>
+//        var oForm = document.getElementById('form');
+//        var aInput = document.getElementsByName('sex');
+//        oForm.onchange = function(){
+//            for(var i=0;i<aInput.length;i++) {
+//                if (aInput[i].checked) {
+//                    alert(i+1);
+//                }
+//            }
+//
+//        }
+
+        function test(){
+            //var oForm = document.getElementById('form');
+            var aInput = document.getElementsByName('sex');
+
+            for(var i=0;i<aInput.length;i++) {
+                if (aInput[i].checked) {
+                    alert(i + 1);
+                }
+            }
+            return false;
+        }
+
+
+    </script>
+</body>
+</html>

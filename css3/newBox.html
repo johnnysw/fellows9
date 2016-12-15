@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            display: -webkit-flex;
+            list-style: none;
+            height: 500px;
+            border: 5px solid #000;
+
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-right: 10px;
+        }
+        #box li:nth-child(1){
+
+            -webkit-flex-grow:1;
+
+        }
+        #box li:nth-child(2){
+            -webkit-flex-grow:2;
+
+        }
+        #box li:nth-child(3){
+            -webkit-flex-grow:3;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<ul id="box">
+    <li>1111</li>
+    <li>2222</li>
+    <li>3333</li>
+</ul>
+
+</body>
+</html>

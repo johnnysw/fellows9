@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font: normal 12px/17px Arial;
+        }
+
+        div{
+            margin:5px;
+        }
+        .selected{
+            background: #fcc;
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend>个人基本信息</legend>
+    <div>
+        <label for="userName">名称</label>
+        <input type="text" id="userName" value="请输入用户名">
+    </div>
+    <div>
+        <label for="pwd">密码</label>
+        <input type="text" id="pwd" value="请输入密码">
+    </div>
+    <div>
+        <label for="msg">详细信息</label>
+        <textarea id="msg">详细信息</textarea>
+    </div>
+</fieldset>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $('input').on('focus',function(){
+        //$(this).val('');
+        if(this.value == this.defaultValue) {
+            this.value = '';
+        }
+    }).on('blur',function(){
+        if(this.value == ''){
+            this.value = this.defaultValue;  //文本框默认值
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>

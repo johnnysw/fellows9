@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		window.onmessage = function(e){
+			var oDiv = document.getElementById('div1');
+			oDiv.innerHTML = e.data
+		}
+	</script>
+</body>
+</html>

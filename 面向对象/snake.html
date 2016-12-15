@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #container {
+        width: 1000px;
+        height: 550px;
+        border: 1px solid;
+        margin: 0 auto;
+    }
+    
+    #ground {
+        width: 1000px;
+        height: 500px;
+        background: orange;
+        position: relative;
+    }
+    
+    #control {
+        width: 1000px;
+        height: 50px;
+        line-height: 50px;
+    }
+    
+    #brand {
+        float: left;
+    }
+    
+    #buttons {
+        float: right;
+    }
+    
+    .block {
+        width: 20px;
+        height: 20px;
+        background: orange;
+        float: left;
+    }
+    
+    .snake-block {
+        background: red;
+        position: absolute;
+    }
+    
+    .food-block {
+        background: blue;
+        position: absolute;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="ground"></div>
+        <div id="control">
+            <div id="brand">javascript 贪吃蛇 by 唯创网讯</div>
+            <div id="buttons">
+                <button id="start">开始</button>
+                <button id="pause">暂停</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    /*
+                     属性                    方法
+        蛇       长度、颜色、位置         移动、吃食物、变长、去世
+        食物     大小、位置、颜色、        初始化
+        操场     大小、颜色、
+        控制台    大小、位置               开始、暂停
+        */
+
+    function Snake() {
+        this.length = 3;
+        this.body = [];
+        this.color = "red";
+        this.position = {
+            x: 20,
+            y: 60
+        };
+        this.className = "block snake-block";
+        this.direction = "right";
+        this.next = {};
+    }
+    Snake.prototype.init = function() {
+        for (var i = 0; i < this.length; i++) {
+            var oSdiv = document.createElement('div');
+            oSdiv.className = this.className;
+            oSdiv.style.top = this.position.y + "px";
+            oSdiv.style.left = this.position.y - i * this.position.x + 'px';
+            this.body.push(oSdiv);
+        }
+    };
+    Snake.prototype.move = function() {
+        var snakeHead = this.body[0];
+        //找到下一个该去的位置
+        if (this.direction == 'right') {
+            this.next = {
+                top: snakeHead.offsetTop,
+                left: snakeHead.offsetLeft + 20
+            }
+        } else if (this.direction == 'left') {
+            this.next = {
+                top: snakeHead.offsetTop,
+                left: snakeHead.offsetLeft - 20
+            }
+        } else if (this.direction == 'top') {
+            this.next = {
+                top: snakeHead.offsetTop - 20,
+                left: snakeHead.offsetLeft
+            }
+        } else if (this.direction == 'down') {
+            this.next = {
+                top: snakeHead.offsetTop + 20,
+                left: snakeHead.offsetLeft
+            }
+        }
+
+        //蛇吃食物，增长身体
+        if (food.dom.offsetLeft == this.next.left && food.dom.offsetTop == this.next.top) {
+            food.dom.className = 'block snake-block';
+            this.body.unshift(food.dom);
+            food.init();
+        } else {
+            var oDiv = this.body.pop();
+            oDiv.style.left = this.next.left + 'px';
+            oDiv.style.top = this.next.top + 'px';
+            this.body.unshift(oDiv);
+        }
+
+        //判断蛇是否吃到自己，是否撞墙
+        for (var i = 1; i < this.body.length; i++) {
+            snakeHead = snake.body[0];
+            if (snakeHead.offsetLeft == this.body[i].offsetLeft && snakeHead.offsetTop == this.body[i].offsetTop) {
+                bDie = true;
+                alert('Game Over1');
+                clearInterval(timer);
+            }
+        }
+
+        if (snakeHead.offsetLeft < 0 || snakeHead.offsetLeft > 980 ||
+            snakeHead.offsetTop < 0 || snakeHead.offsetTop > 480) {
+            alert('Game Over2');
+            bDie = true;
+            clearInterval(timer);
+        }
+    };
+
+
+    function Food() {
+        this.className = "block food-block";
+        this.position = {
+            x: 0,
+            y: 0
+        };
+        this.dom = null;
+    }
+    Food.prototype.init = function() {
+        this.position.x = parseInt(Math.random() * 50) * 20;
+        this.position.y = parseInt(Math.random() * 25) * 20;
+        var bFlag = false; //标识食物是否重新生成；false代表不用
+        do {
+            bFlag = false;
+            for (var i = 0; i < snake.body.length; i++) {
+                if (snake.body[i].offsetLeft == food.position.x && snake.body[i].offsetTop == food.position.y) {
+                    bFlag = true;
+                }
+            }
+        } while (bFlag);
+
+        food.dom = document.createElement('div');
+        food.dom.className = food.className;
+        food.dom.style.top = food.position.y + 'px';
+        food.dom.style.left = food.position.x + 'px';
+        ground.dom.appendChild(food.dom);
+    };
+
+    function Ground() {
+        this.dom = document.getElementById("ground");
+    }
+
+    function Game() {
+        this.speed = 200;
+    }
+    Game.prototype.init = function(){
+        document.onkeydown = function(e){
+            e = e || window.event;
+            var kc = e.which || e.keyCode;
+            if(kc == 37 && snake.direction!='right'){
+                snake.direction = 'left';
+            }else if(kc == 38 && snake.direction!='down'){
+                snake.direction = 'top';
+            }else if(kc == 39 && snake.direction!='left'){
+                snake.direction = 'right';
+            }else if(kc == 40 && snake.direction!='top'){
+                snake.direction = 'down';
+            }
+        }
+    };
+    Game.prototype.start = function() {//未完成
+
+    };
+    Game.prototype.pause = function() {//未完成
+
+    };
+
+    var ground = new Ground();
+
+    var snake = new Snake();
+    snake.init();
+    for (var i = 0; i < snake.body.length; i++) {
+        ground.dom.appendChild(snake.body[i]);
+    }
+
+    var food = new Food();
+    food.init();
+
+    var game = new Game();
+    game.init();
+
+    var timer = setInterval(function(){
+        snake.move();
+    }.bind(snake), game.speed);
+
+    </script>
+</body>
+
+</html>

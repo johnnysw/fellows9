@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn">随机彩票</button>
+
+    <div id="div1"></div>
+
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div1');
+        var obj = {};
+        oBtn.onclick = function(){
+            var arr = [];
+            var hash = Math.random();
+
+            for(var i=0; i<7;i++){
+                var num = Math.floor(Math.random()*35) + 1;
+                arr.push(num);
+            }
+            //修改页面的hash值
+            location.hash = hash;
+            obj[hash] = arr;
+//            obj = {
+//                0.43936300086049496:[5,26,24,20,33,10,7],
+//                0.439363000860494444:[8,26,24,20,33,10,7]
+//            }
+            oDiv.innerHTML = arr;
+        }
+        window.onhashchange = function(){
+            //取到当前hash值
+            var hash = location.hash;
+            //#0.609625002278023
+            var str = obj[hash.substr(1)];
+            //console.log(obj[hash.substr(1)]);
+            if(str){
+                oDiv.innerHTML = str;
+            }else{
+                oDiv.innerHTML = '';
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

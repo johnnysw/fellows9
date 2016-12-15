@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li class="c abc b">001</li>
+    <li>002
+    <span class="a">jjj</span></li>
+    <li class="a">003</li>
+</ul>
+
+<script>
+   /* var oUl = document.getElementsByTagName('ul')[0];
+    var aLi = oUl.getElementsByClassName('a');
+
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].style.background = "red";
+    }*/
+
+
+    function getClassName(clsName,context){
+        context = context || document;
+
+        if(document.getElementsByClassName){
+            return context.getElementsByClassName(clsName);
+        }else{
+            var result = [];
+            var all = context.getElementsByTagName("*");
+            var reg = new RegExp('\\b'+clsName+'\\b');
+            for(var i=0; i<all.length; i++){
+                if(reg.test(all[i].className) ){
+                    result.push(all[i]);
+                }
+            }
+            return result;
+        }
+    }
+    var oUl = document.getElementsByTagName('ul')[0];
+
+    var aLi = getClassName('a',oUl);
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].style.background = "red";
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

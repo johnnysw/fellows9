@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<span id="s"></span>
+<script>
+
+    var oS = document.getElementById('s');
+    showTime();
+        //现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！”
+    //var d = new Date();
+        var d;
+    function showTime(){
+        d = new Date();
+        //document.write();
+//        oS.innerHTML = "现在是"+ d.getFullYear()+","+
+//                (d.getMonth()+1)+","+//9
+//                d.getDate()+","+//2
+//                d.getHours()+","+//16
+//                d.getMinutes()+","+//27
+//                d.getSeconds();
+        document.title = d.toLocaleString();
+    }
+    setInterval(function(){
+        showTime();
+    },1000)
+
+
+
+</script>
+</body>
+</html>

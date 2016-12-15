@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Animal(name){
+        this.name = name;
+    }
+    Animal.prototype.showName = function(){
+        alert(this.name);
+    };
+
+    function Cat(name){
+        Animal.call(this, name);
+    }
+
+    function Dog(name){
+        Animal.call(this, name);
+    }
+    Cat.prototype = new Animal();
+    Dog.prototype = new Animal();
+
+    var mimi = new Cat("mimi");
+    mimi.showName();
+
+    var dog = new Dog("wangcai");
+    dog.showName();
+
+
+
+
+</script>
+</body>
+</html>

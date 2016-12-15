@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form name="myForm">
+        <input type=text name="first" value="40">
+        <input type=text name="second" value="30">
+        <input type=text name="third" value="70">
+        <input type=button value="add" onclick=add()>
+    </form>
+
+    <script>
+
+        function add(){
+            var first=document.myForm.first.value ;
+            var second=parseInt(document.myForm.second.value);
+            var third= parseInt(document.myForm.third.value);
+            alert(first+second+third);
+        }
+
+//        function replaceStr(inStr, oldStr, newStr){
+//            var rep = inStr;
+//            while (rep.indexOf(oldStr) > -1)   {
+//                rep = rep.replace(oldStr, newStr);
+//            }
+//            return rep;
+//        }
+//        alert(replaceStr("how do you do","do","are"));
+
+//        var x;
+//        var y=null;
+//        alert(x) ;
+//        alert(y) ;
+//        alert(x=y);
+//        alert(x==y);
+//        x='a';
+//        y='b';
+//        //z=false;
+//        function testOne(){
+//            var x='c';
+//            var y='d';
+//            z=true;
+//            alert(x);
+//            alert(y);
+//            alert(z);
+//        }
+//        function testTwo(){
+//            alert(x);
+//            alert(y);
+//            alert(z);
+//        }
+//        testOne();
+//        testTwo();
+
+    </script>
+</body>
+</html>

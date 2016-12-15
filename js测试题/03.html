@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form name="myForm">
+
+        <select name="sel">
+            <option value="aaaa">1111</option>
+            <option value="bbbb">2222</option>
+            <option value="cccc">3333</option>
+        </select>
+        <input type="text" name="content"/>
+        <input type="text" name="vv"/>
+    </form>
+<script>
+
+    var oSel = document.getElementsByName("sel")[0];
+    var aOp = oSel.getElementsByTagName('option');
+    var oVv = document.getElementsByName("vv")[0];
+    var oContent = document.getElementsByName("content")[0];
+
+    oSel.onchange = function(){
+//        for(var i=0;i<aOp.length;i++){
+//            if(aOp[i].selected){
+//                oVv.value =  aOp[i].value;
+//                oContent.value = aOp[i].innerHTML;
+//            }
+//        }
+//        alert(document.myForm.sel);
+        oVv.value = this.value;
+        oContent.value = this.options[this.selectedIndex].text;
+    }
+
+</script>
+</body>
+</html>

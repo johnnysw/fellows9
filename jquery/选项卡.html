@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例2.2-选项卡（div显示隐藏）</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+
+        #container{
+            width: 400px;
+            height: 200px;
+
+            margin: 50px auto;
+
+        }
+        #nav{
+            height: 30px;
+        }
+
+        #nav li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            margin-right: 10px;
+            background: #ccc;
+            text-align: center;
+            line-height: 30px;
+        }
+        #content{
+            background: #ccc;
+            height: 170px;
+            border-top: 1px solid #000;
+        }
+
+        #nav li.selected{
+            background: #000;
+            color: #fff;
+        }
+
+        #content div{
+            display: none;
+        }
+
+        #content div.selected{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id='container'>
+
+    <ul id='nav'>
+        <li class='selected'>js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+    <div id='content'>
+        <div class='selected'>1111111</div>
+        <div>2222222</div>
+        <div>3333333</div>
+    </div>
+</div>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $("#nav li").on("click", function(){
+                $(this).addClass("selected").siblings().removeClass("selected");
+//                $("#content div:eq(" + $(this).index() + ")").addClass("selected").siblings().removeClass("selected");
+                $("#content div").eq($(this).index()).addClass("selected").siblings().removeClass("selected");
+            });
+        });
+
+    </script>
+
+</body>
+</html>

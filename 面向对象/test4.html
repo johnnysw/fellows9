@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * call apply
+        * */
+
+        var a = {
+            name : "zhangsan",
+            age : 18
+        };
+
+//        var aa = "123";
+        var b = function(arg, arg2){
+            console.log(this);
+            console.log(arg);
+            console.log(arg2);
+        };
+//        b.call(a, 5, 6);
+        b.apply(a, [5, 6]);
+
+
+//        oDiv.onclick = function(e){
+//            var target = e.target || window.event.srcElement;
+//            this
+//        };
+
+//        window.setInterval(function(){
+//            console.log(this);
+//        }, 1000);
+
+
+//        (function(){
+//        })();
+//
+//        $(function(){
+//        });
+
+
+    </script>
+</body>
+</html>
