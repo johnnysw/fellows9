@@ -1,7 +1,13 @@
 var userModel = require('../models/userModel');
 
 exports.login = function(req, res) {
-    res.render('login');
+    res.render('login');//跳转
+};
+
+exports.logout = function(req, res) {
+    req.session.loginUser = null;
+    //res.redirect('/login');
+    exports.login(req, res);
 };
 
 exports.reg = function(req, res) {
@@ -15,8 +21,8 @@ exports.checkLogin = function(req, res) {
     userModel.queryByNamePwd(username, password, function (result) {
         if(result.length > 0){
             var user = result[0];
-            req.session.loginUser = user;
-            res.redirect('/');
+            req.session.loginUser =  user;//{user_id:1, username:'lisi'}
+            res.redirect('/adminIndex');//重定向
             //res.render('index', {uname: username});
         }else{
             res.redirect('/login');
@@ -48,3 +54,16 @@ exports.regist = function(req, res) {
 
 
 };
+
+/*
+module.exports = {
+    login: function(req, res) {
+        res.render('login');//跳转
+    },
+    logout: function(req, res) {
+        req.session.loginUser = null;
+        //res.redirect('/login');
+        console.log(this);
+        this.login(req, res);
+    }
+};*/
