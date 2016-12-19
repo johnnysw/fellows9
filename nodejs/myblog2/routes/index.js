@@ -15,6 +15,9 @@ router.get('/adminIndex', admin.index);
 router.get('/blogType', admin.blogType);
 router.post('/addBlogType', admin.addBlogType);
 router.get('/newBlog', admin.newBlog);
+router.get('/blogs', admin.listBlog);
+router.post('/addBlog', admin.addBlog);
+router.get('/delBlog', admin.delBlog);
 
 router.get('/viewPost', blog.viewPost);
 
