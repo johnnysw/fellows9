@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 100px;
+            /*background: #ff0000;*/
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click11</button>
+    <h1 id="title">haha</h1>
+    <div id="div1">hehe</div>
+    <script>
+        //对象：一切皆对象，主要研究属性和方法
+
+        //DOM(document object model, 文档对象模型)
+        //this: 对当前对象的引用
+
+        var oBtn1 = document.getElementById('btn');
+        oBtn1.onclick = function(){
+            alert(   this.innerHTML   );
+        };
+
+        var oH1 = document.getElementById('title');
+        oH1.onmouseover = function(){
+            alert(this.innerHTML);
+        };
+
+        var oDiv1 = document.getElementById('div1');
+        oDiv1.onclick = function(){
+//            this.style.width = '400px';
+            this.style.backgroundColor = 'green';
+        };
+
+
+
+
+    </script>
+</body>
+</html>

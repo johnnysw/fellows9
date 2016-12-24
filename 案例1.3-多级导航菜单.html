@@ -74,13 +74,13 @@
     <script>
         var oMenu = document.getElementById('menu');
         var aMainMenu = oMenu.getElementsByTagName('li');
-//        oMenu.getElementsByClassName('main-menu')//IE8及以下不支持
         for(var i=0; i<aMainMenu.length; i++){
-            if(  aMainMenu[i].className == 'main-menu'  ){
+            if(aMainMenu[i].className == 'main-menu'){
                 aMainMenu[i].onmouseover = function(){
                     var oSubMenu = this.getElementsByTagName('ul')[0];
                     oSubMenu.style.display = 'block';
                 };
+
                 aMainMenu[i].onmouseout = function(){
                     var oSubMenu = this.getElementsByTagName('ul')[0];
                     oSubMenu.style.display = 'none';

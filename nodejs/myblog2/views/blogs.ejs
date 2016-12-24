@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>博客文章管理 Johnny的博客 - 个人博客</title>
+    <link rel="stylesheet" href="/stylesheets/space2011.css" >
+    <link rel="stylesheet" href="/stylesheets/jquery.css" >
+    <style type="text/css">
+        body, table, input, textarea, select {
+            font-family: Verdana, sans-serif, 宋体;
+        }
+    </style>
+</head>
+<body>
+<div id="OSC_Screen">
+    <% include header.ejs%>
+    <div id="OSC_Content">
+        <div id="AdminScreen">
+            <div id="AdminPath">
+                <a href="index_logined.htm">返回我的首页</a>&nbsp;»
+                <span id="AdminTitle">博客文章管理</span>
+            </div>
+            <% include adminMenu.ejs%>
+            <div id="AdminContent">
+                <div class="MainForm BlogArticleManage">
+                    <h3 class="title">共有 3 篇博客，每页显示 40 个，共 1 页</h3>
+                    <div id="BlogOpts">
+                        <a href="javascript:;" id="btnSelectAll">全选</a>&nbsp;|
+                        <a href="javascript:;" id="btnCancel">取消</a>&nbsp;|
+                        <a href="javascript:;" id="btnReverse">反向选择</a>&nbsp;|
+                        <a href="javascript:;" id="btnDelete">删除选中</a>
+                    </div>
+                    <ul>
+                        <%
+                            for(var i=0; i<blogs.length; i++){
+                                var blog = blogs[i];
+                        %>
+                        <li class="row_1">
+                            <input name="blog" value="<%=blog.blog_id%>" type="checkbox">
+                            <a href="viewPost_comment.htm" target="_blank"><%=blog.title%></a>
+                            - <%=blog.type_name%>
+                            <small><%=blog.create_time.toLocaleString()%></small>
+                        </li>
+                        <%
+                        }
+                        %>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="OSC_Footer">© 唯创网讯</div>
+</div>
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+<script>
+    $(function () {
+        $('#btnDelete').on('click', function () {
+            var valueStr = '';
+            var $checked = $(':checked');
+            $checked.each(function(){
+               valueStr += this.value + ',';//"2,6,"
+           });
+           valueStr = valueStr.slice(0, -1);
+           //url, data, callback, dataType
+           $.get('/delBlog', {blogIds: valueStr}, function(data){
+               if(data == 'success'){
+                    alert('删除成功!');
+                   $checked.parent().remove();
+               }
+           }, 'text');
+        });
+    });
+</script>
+</body>
+</html>

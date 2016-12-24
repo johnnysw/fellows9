@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 300px;
+            height: 100px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">这是一个按钮</button>
+
+    <div id="div1">this is div</div>
+
+    <ul id="ul1">
+        <li>0001</li>
+        <li>0002</li>
+        <li>0003</li>
+    </ul>
+
+    <script>
+
+        var oBtn = document.getElementById('btn');//根据id元素获取元素对象
+        oBtn.onclick = function(){
+            alert('haha');
+        };
+
+        var oDiv = document.getElementById('div1');
+        oDiv.onclick = function(){
+            alert(  oDiv.innerHTML  );
+        };
+
+        var aLi = document.getElementsByTagName('li');
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].onclick = function(){
+                //this: 对当前对象的引用
+                alert(  this.innerHTML    );
+            };
+        }
+    </script>
+</body>
+</html>

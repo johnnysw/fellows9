@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*var fn = function(){
+			alert(111);
+		};*/
+		// var fn = new Function("alert(111);");
+		// fn();
+		// var arr = [];
+		/*var str = new String("abc");
+
+		console.log(  typeof(str)  );*/
+
+		var obj1 = {
+			name: 'lisi',
+			age: 23
+		};
+
+		var obj2 = {
+			name: 'lisi',
+			age: 23
+		};
+
+		obj2.name = 'wangwu';
+
+		console.log(obj1.name);
+
+		/*var fnEat = function(){
+			console.log(  this.name +' is eating!'  );
+		};*/
+
+		function Cat(name, age){//构造函数（方法）
+			this.name = name;
+			this.age = age;
+			/*this.eat = function(){
+				console.log(  this.name +' is eating!'  );
+			};*/
+		}
+		Cat.prototype.eat = function(){
+			console.log(  this.name +' is eating!'  );
+		};
+
+		var cat1 = new Cat('mimi', 3);
+		cat1.eat();
+
+		var cat2 = new Cat('huahua', 5);
+		cat2.eat();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
