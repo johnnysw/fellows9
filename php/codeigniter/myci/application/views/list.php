@@ -6,6 +6,7 @@
     <base href="<?php echo site_url(); ?>">
 </head>
 <body>
+    <h1>当前用户为:<?php echo $this->session->userdata('userinfo')->username; ?></h1>
     <table border="1">
         <tr>
             <th>id</th>

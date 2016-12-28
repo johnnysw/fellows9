@@ -23,6 +23,10 @@ class User extends CI_Controller {
 
 			$row = $this -> user_model -> get_by_username_pwd($username, $password);
 			if($row){
+				//登录成功
+				$this->session->set_userdata(array(
+					"userinfo" => $row
+				));
 				redirect("user/user_list");
 			}else{
 				echo "fail";
