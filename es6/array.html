@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+
+//        Array.from();//将类数组变为数组；
+
+//        var set = new Set([1,2,3,4,5]);
+
+//        var arr = Array.from(set);
+//        var obj = {"aa":1,2:2,length:4}; //0,1
+//        var arr = Array.from(obj);
+//        console.log(arr);
+
+
+//            var m = new Map([[1,1],[2,2],[3,3]]);
+//            var arr = Array.from(m);//1,1  2,2, 3,3
+//            console.log(arr);
+
+
+//        console.log(arr);
+//        var arr = ['ddd',2,3,4,5,4,3,0];
+//        var set = new Set(arr);
+//        console.log(Array.from(set));
+
+       //var values = set.values();
+
+        //Array.of();
+//        var arr = [1,2,3];//数组直接量
+//        var arr1 = new Array(1,2,3);
+
+//        var arr = [3];
+//        var arr1 = new Array(3);
+//        var arr2 = Array.of(3,3,4,5);
+//        console.log(arr2);
+
+//        copyWithin();
+//      第一个参数：起始位置，
+// 第二个参数，替换的起始位置，第三个参数：替换的结束位置；
+
+
+        var arr = [1,2,3,4,5,6,7];
+//        arr.copyWithin(2,4,7);
+//        console.log(arr);
+
+
+//        var a = arr.findIndex(function(value,index,arr){
+//            index = index + 1;
+//            return index > 4;
+//        });
+
+        arr.fill(10,2,5);
+
+        console.log(arr);
+
+
+    </script>
+</body>
+</html>

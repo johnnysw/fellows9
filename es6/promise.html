@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+
+//        function a(){
+//            setTimeout(function(){
+//                console.log("aaa");
+//
+//            },50);
+//
+//
+//        }
+//        function b(){
+//            setTimeout(function(){
+//                console.log("bbb");
+//
+//            },40);
+//
+//        }
+//
+//        function c(){
+//            setTimeout(function(){
+//                console.log("ccc");
+//            },100);
+//        }
+//
+//        a(function(){
+//            b(function(){
+//                c();
+//            });
+//        });
+
+
+//    var p = new Promise(function(resolve,reject){
+//        setTimeout(function(){
+//            console.log("aaa");
+//            reject("error");
+//        },50);
+//
+//    });
+//        p.then(function(data){
+//            setTimeout(function(){
+//                console.log("bbb");
+//                return Promise.resolve();
+//            },40);
+//
+//        }).then(function(){
+//            setTimeout(function(){
+//                console.log("ccc");
+//            },100);
+//
+//        }).catch(function(data){
+//            console.log(data);
+//        });
+
+
+
+//        var p = Promise.all([
+//            new Promise(function(resolve,reject){
+//                setTimeout(function(){
+//                    console.log("aaa");
+//                    resolve("11");
+//                },50);
+//
+//            }),
+//            new Promise(function(resolve,reject){
+//                setTimeout(function(){
+//                    console.log("bbb");
+//                    reject("22");
+//                },40);
+//
+//            }),
+//            new Promise(function(resolve,reject){
+//                setTimeout(function(){
+//                    console.log("ccc");
+//                    reject("33");
+//                },100);
+//
+//            })
+//        ]);
+//
+//
+//        p.then(function(data){
+//            console.log(data);
+//        },function(data){
+//            console.log(data);
+//        });
+
+var p = Promise.race([
+    new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("aaa");
+            resolve("11");
+        },50);
+
+    }),
+    new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("bbb");
+            resolve("22");
+        },40);
+
+    }),
+    new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("ccc");
+            resolve("33");
+        },100);
+
+    })
+]);
+
+
+    p.then(function(data){
+        console.log(data);
+    },function(data){
+        console.log(data);
+    });
+        
+    </script>
+</body>
+</html>
