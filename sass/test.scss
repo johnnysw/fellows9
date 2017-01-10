@@ -1,0 +1,65 @@
+$color:#888;
+$font:30px;
+$font:18px !default;
+$bg:background;
+body{
+	#{$bg}: $color;
+	// font:12px/#{$font} ;
+	background: url('images/#{$bg}.png');
+
+	div{
+		color:#fff;
+		border:2px solid #000;
+		a{
+			color:#f00;
+			&:hover{
+				color:green;
+			}
+		}
+		
+
+		b{
+			font-size:16px;
+		}
+	}
+}
+.#{$bg}{
+	font-size:$font;
+	background: $color;
+	padding:{
+		top:10px;
+		bottom: 20px;
+	}
+
+	// padding:10px 0 20px 0;
+}
+
+@mixin border($col1:#333){
+// @mixin border($col1,$col2){
+
+	border:1px solid $col1;
+	-webkit-box-shadow:2px 2px 2px 2px #eee;
+	-moz-box-shadow:2px 2px 2px 2px #eee;
+	-o-box-shadow:2px 2px 2px 2px #eee;
+	-ms-box-shadow:2px 2px 2px 2px #eee;
+	box-shadow:2px 2px 2px 2px #eee;
+}
+.aa{
+	width: 200px;
+	height: 200px;
+	@include border(#000);
+}
+.bb{
+	width: 100px;
+	height:50px;
+	@include border();
+
+}
+.cc{
+	color:red;
+	@extend .aa;
+}
+
+
+
+

@@ -1,0 +1,52 @@
+body {
+  background: #888;
+  background: url("images/background.png");
+}
+body div {
+  color: #fff;
+  border: 2px solid #000;
+}
+body div a {
+  color: #f00;
+}
+body div a:hover {
+  color: green;
+}
+body div b {
+  font-size: 16px;
+}
+
+.background {
+  font-size: 30px;
+  background: #888;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.aa, .cc {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+  -webkit-box-shadow: 2px 2px 2px 2px #eee;
+  -moz-box-shadow: 2px 2px 2px 2px #eee;
+  -o-box-shadow: 2px 2px 2px 2px #eee;
+  -ms-box-shadow: 2px 2px 2px 2px #eee;
+  box-shadow: 2px 2px 2px 2px #eee;
+}
+
+.bb {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #333;
+  -webkit-box-shadow: 2px 2px 2px 2px #eee;
+  -moz-box-shadow: 2px 2px 2px 2px #eee;
+  -o-box-shadow: 2px 2px 2px 2px #eee;
+  -ms-box-shadow: 2px 2px 2px 2px #eee;
+  box-shadow: 2px 2px 2px 2px #eee;
+}
+
+.cc {
+  color: red;
+}
+
+/*# sourceMappingURL=test.css.map */
