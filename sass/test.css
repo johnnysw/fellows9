@@ -1,4 +1,13 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*这是我的css*/
 body {
+  font-family: "Arial";
+  width: 100px;
   background: #888;
   background: url("images/background.png");
 }
@@ -48,5 +57,48 @@ body div b {
 .cc {
   color: red;
 }
+
+.ee {
+  width: 200px;
+}
+
+.dd, .ee {
+  width: 20px;
+  height: 20px;
+}
+
+.ff {
+  width: 80px;
+}
+
+#arrow {
+  width: 0px;
+  height: 0px;
+  border-width: 50px;
+  border-style: solid;
+  border-color: transparent transparent #eee transparent;
+}
+
+.icon_error {
+  background: url("images/error.png");
+}
+
+/* .icon_right{
+	background: url('images/right.png');
+} */
+.icon_right {
+  background: url("images/right.png");
+}
+
+/* .icon_right{
+	background: url('images/right.png');
+} */
+.icon_warning {
+  background: url("images/warning.png");
+}
+
+/* .icon_right{
+	background: url('images/right.png');
+} */
 
 /*# sourceMappingURL=test.css.map */
