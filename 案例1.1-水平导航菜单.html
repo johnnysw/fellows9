@@ -1,47 +1,52 @@
-<!DOCTYPE html>
+<!doctype html><!--文档类型，必须要写，否则会在IE中导致兼容性问题-->
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>案例1.1-水平导航菜单</title>
-        <style>
-            /*样式重置*/
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            ul{
-                list-style: none;
-            }
-            a{
-                text-decoration: none;
-            }
+<head>
+    <meta charset="UTF-8">
+    <title>案例1.1-水平导航菜单</title>
+    <style>
+        /*样式重置*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-            #menu{
-                overflow: hidden;
-            }
-            #menu li{
-                background: #cccccc;
-                width: 120px;
-                height: 30px;
-                float: left;
-                margin-right: 5px;
-                text-align: center;
-                line-height: 30px;
-            }
-            #menu a{
-                width: 100%;
-                height: 100%;
-                float: left;
-            }
-        </style>
-    </head>
-    <body>
-        <ul id="menu">
-            <li>
-                <a href="#">link 1</a>
-            </li>
-            <li><a href="#">link 2</a></li>
-            <li><a href="#">link 3</a></li>
-        </ul>
-    </body>
+        ul, ol {
+            list-style: none; /*列表样式*/
+        }
+
+        a {
+            text-decoration: none; /*文本装饰*/
+        }
+
+        #menu li {
+            background: #ff0000;
+            /*display: inline-block;*/
+            float: left;
+            width: 120px;
+            height: 30px;
+            margin-right: 5px;
+        }
+        #menu a{
+            width: 100%;
+            height: 100%;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li>
+        <a href="#">link 1</a>
+    </li>
+    <li>
+        <a href="#">link 2</a>
+    </li>
+    <li>
+        <a href="#">link 3</a>
+    </li>
+</ul>
+
+</body>
 </html>

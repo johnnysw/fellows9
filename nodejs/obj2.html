@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		function Dog(name){
+			// this.name = name;
+		}
+		Dog.prototype.name = '大黄';
+		Dog.prototype.brother = { name: '大黄黄'};
+		Dog.prototype.shout = function(){
+			console.log(this.name + ' 汪汪!');
+		};
+
+		var dog1 = new Dog('旺财');
+		var dog2 = new Dog('小花');
+		dog1.name = 'xxx'
+		dog1.brother.name = 'yyy';
+		console.log(dog2.name);
+		console.log(dog2.brother.name);
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

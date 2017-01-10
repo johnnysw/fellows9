@@ -1,0 +1,15 @@
+{
+	"name": "testpkg",
+	"description": "这是我的第一个测试包",
+	"version": 1.0,
+	"maintainers": [{
+		"name": "lisi",
+		"email": "lisi@163.com"
+	}, {
+		"name": "wangwu",
+		"email": "wangwu@qq.com"
+	}],
+	"bugs": "http://www.xxx.com/yyy"
+
+
+}

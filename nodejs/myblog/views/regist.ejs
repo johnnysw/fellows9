@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regist</title>
+</head>
+<body>
+<form action="/users/xxx" method="post">
+    <p>
+        用户名：<input type="text" name="uname" id="uname">
+    </p>
+    <p>
+        密码：<input type="password" name="pwd">
+    </p>
+    <p>
+        确认密码：<input type="password" name="confirmPwd">
+    </p>
+    <p>
+        <input type="submit" value="注册">
+    </p>
+</form>
+<script src="/javascripts/jquery-1.11.3.min.js"></script>
+<script>
+    $(function () {
+        $('#uname').on('blur', function () {
+            var that = this;
+            //url, data, callback, dataType
+            $.get("/users/checkUser", {
+                username: this.value
+            }, function (data) {
+                if(data == 'success'){
+                    $('<span>勾</span>').insertAfter(that);
+                }else if(data == 'fail'){
+                    $('<span>差</span>').insertAfter(that);
+                }
+            }, 'text');
+        });
+    });
+</script>
+</body>
+</html>
