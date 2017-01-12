@@ -10,6 +10,7 @@
     <!--<button v-on:click="greet">Greet</button>-->
     <!--<button v-on:click="message +=1">Greet</button>-->
     <button v-on:click="say(bye)">Greet</button>
+    <input type="text" v-on:keyup.esc="fn">
     <!--<input type="text" v-model='message'/>-->
 </div>
     <script src="vue.js"></script>
@@ -28,9 +29,13 @@
             say:function(lang){
 //                alert(lang+event.target.tagName);
                 alert(lang);
+            },
+            fn:function(event){
+                alert(1111);
             }
         }
     });
+
 
 //    fn("bye");
 </script>

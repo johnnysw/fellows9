@@ -6,11 +6,23 @@
 </head>
 <body>
     <div id="app">
-        <ul>
-            <li v-for="item in items">
-                {{item.name}}
-            </li>
-        </ul>
+
+            <!--<template v-for='(item,index) in items'>-->
+                <!--<p>-->
+                    <!--{{index}}-->
+                <!--</p>-->
+                <!--<p>-->
+                    <!--{{item.name}}-->
+                <!--</p>-->
+            <!--</template>-->
+        <!--<div v-for='(value,key,index) in obj'>-->
+
+            <!--{{index}}&#45;&#45;{{key}}:{{value.name}}-->
+
+        <!--</div>-->
+        <p v-for="i in num">
+            {{i}}
+        </p>
     </div>
     <script src="vue.js"></script>
 <script>
@@ -20,9 +32,21 @@
                 items:[
                     {name:11},
                     {name:22},
-                    {name:33}]
+                    {name:33}
+                ],
+                obj:{
+                    aa:{name:11},
+                    bb:{name:22},
+                    cc:{name:33}
+                },
+                num:4
             }
         });
+
+//        vm.items = vm.items.filter(function (item) {
+//
+//            return item.name > 11
+//        })
 
 
 </script>
