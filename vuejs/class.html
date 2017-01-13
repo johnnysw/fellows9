@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+        .red{
+            color:red;
+        }
+        .blue{
+            background: blue;
+        }
+        .font{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!--<p v-bind:class="{red:isRed,blue:isBlue}">22222222222</p>-->
+        <!--<p v-bind:class="objClass">22222222222</p>-->
+        <p class="font" v-bind:class="[redClass,blueClass]">22222222222</p>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                isRed:true,
+                isBlue:false,
+                objClass:{
+                    red:true,
+                    blue:false
+                },
+                redClass:"red",
+                blueClass:"blue"
+
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>
