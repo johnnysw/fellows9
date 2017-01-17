@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.min.js"></script>
+
+    <script type="text/babel">
+        var Counter = React.createClass({
+            getInitialState : function(){
+                return {
+                    count : 0
+                };
+            },
+            handleClick : function(e){
+                /*this.state.count += 1;
+                this.forceUpdate();*/
+                console.log(e.target);
+
+                this.setState({
+                    count : this.state.count + 1
+                });
+            },
+            render : function(){
+                console.log("render");
+                return (
+                    <div>
+                        <button onClick={this.handleClick}>点我加1</button>
+                        <h2>{this.state.count}</h2>
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+                <Counter/>,
+                document.getElementById("container")
+        );
+
+    </script>
+
+</body>
+</html>
