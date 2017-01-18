@@ -12,7 +12,7 @@
     <script src="react-15.3.1/browser.min.js"></script>
 
     <script type="text/babel">
-        var Component = React.createClass({
+        /*var Component = React.createClass({
             mixins : [React.addons.LinkedStateMixin],
             getInitialState : function(){
                 return {
@@ -27,10 +27,28 @@
                         </div>
                 );
             }
+        });*/
+        var WithoutLink = React.createClass({
+            mixins: [React.addons.LinkedStateMixin],
+            getInitialState: function() {
+                return {message: 'Hello!'};
+            },
+            render: function() {
+                var valueLink = this.linkState('message');
+                var handleChange = function(e) {
+                    valueLink.requestChange(e.target.value);
+                };
+                return (
+                        <div>
+                            <input type="text" value={valueLink.value} onChange={handleChange} />
+                            <h1>{this.state.message}</h1>
+                        </div>
+                );
+            }
         });
 
         ReactDOM.render(
-                <Component/>,
+                <WithoutLink/>,
                 document.getElementById("container")
         );
 

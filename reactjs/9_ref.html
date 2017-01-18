@@ -13,14 +13,27 @@
     <script src="react-15.3.1/browser.min.js"></script>
 
     <script type="text/babel">
+        var Msg = React.createClass({
+            render : function(){
+                return (
+                        <h1>hhhhhh</h1>
+                );
+            }
+        });
+
         var Input = React.createClass({
             componentDidMount : function(){
-//                console.log(this.refs.username);
-                this.refs.username.focus();
+                console.log(this.refs.username);
+                console.log(ReactDOM.findDOMNode(this.refs.msg));
+//                this.refs.username.focus();
             },
             render : function(){
                 return (
-                        <input type="text" ref="username"/>
+                        <div>
+                            <input type="text" ref="username"/>
+                            <Msg ref="msg"/>
+                        </div>
+
                 );
             }
         });
