@@ -1,23 +1,49 @@
 var ImgFigure = React.createClass({
+    handleClick: function(){
+        //如果是居中就翻转，否则就居中
+        if(this.props.data.isCenter){
+            this.props.inverse();
+        }else{
+            this.props.center();
+        }
+    },
     render : function(){
         var styleObj = {
-             top :  this.props.data.pos.y,
-            left : this.props.data.pos.x
+            top :  this.props.data.pos.y,
+            left : this.props.data.pos.x,
+            transform : "rotate(" + this.props.data.rotate + "deg)"
         };
+        if(this.props.data.isInverse){
+            styleObj.transform = "rotateY(180deg)";
+        }
         return (
-            <div className="img-figure" style={styleObj}>
+            <div className="img-figure" style={styleObj} onClick={this.handleClick}>
                 <img src={"imgs/" + this.props.info.fileName}/>
                 <h2>{this.props.info.title}</h2>
-                <div></div>
+                <div>{this.props.info.desc}</div>
             </div>
         );
     }
 });
 
 var Controller = React.createClass({
+    handleClick : function(){
+        if(this.props.data.isCenter){
+            this.props.inverse();
+        }else{
+            this.props.center();
+        }
+    },
     render : function(){
+        var ctrlClassName = "controller"
+        if(this.props.data.isCenter){
+            ctrlClassName += " is-center";
+            if(this.props.data.isInverse){
+                ctrlClassName += " is-inverse";
+            }
+        }
         return (
-            <span></span>
+            <span className={ctrlClassName} onClick={this.handleClick}></span>
         );
     }
 });
@@ -41,7 +67,10 @@ var Photowall = React.createClass({
                 pos : {
                     x : 0,
                     y : 0
-                }
+                },
+                rotate : 0,
+                isCenter : false,
+                isInverse : false
             }]
         };
     },
@@ -91,14 +120,35 @@ var Photowall = React.createClass({
                     y : getRangeRandom(this.const.yMin, this.const.yMax)
                 }
             }
+            imgFigureArr[i].rotate = getRangeRandom(-30, 30);
+            imgFigureArr[i].isCenter = false;
+            imgFigureArr[i].isInverse = false;
         }
         imgFigureArr[centerIdx].pos = {
             x : this.const.centerPos.x,
             y : this.const.centerPos.y
-        }
+        };
+        imgFigureArr[centerIdx].rotate = 0;
+        imgFigureArr[centerIdx].isCenter = true;
+
         this.setState({
             imgFigureArr : imgFigureArr
         });
+    },
+    //闭包，居中方法
+    center : function(centerIdx){
+        return function(){
+            this.rearrage(centerIdx);
+        }.bind(this);
+    },
+    //旋转方法
+    inverse : function(centerIdx){
+        return function(){
+            this.state.imgFigureArr[centerIdx].isInverse = !this.state.imgFigureArr[centerIdx].isInverse;
+            this.setState({
+                imgFigureArr : this.state.imgFigureArr
+            });
+        }.bind(this);
     },
     render : function(){
         var imgFigureArr = [];
@@ -110,17 +160,23 @@ var Photowall = React.createClass({
                     pos : {
                         x : 0,
                         y : 0
-                    }
+                    },
+                    rotate : 0,
+                    isCenter : false,
+                    isInverse : false
                 };
             }
 
-            imgFigureArr.push(<ImgFigure key={index} info={value} ref="imgFigure" data={this.state.imgFigureArr[index]}/>);
-            contorllerArr.push(<Controller key={index}/>);
+            imgFigureArr.push(<ImgFigure key={index} info={value} ref="imgFigure" 
+                data={this.state.imgFigureArr[index]} center={this.center(index)} 
+                inverse={this.inverse(index)}/>);
+            contorllerArr.push(<Controller key={index} data={this.state.imgFigureArr[index]} center={this.center(index)} 
+                inverse={this.inverse(index)}/>);
         }.bind(this));
         return (
             <div className="stage" ref="stage">
                 <div>{imgFigureArr}</div>
-                <div>{contorllerArr}</div>
+                <div className="nav">{contorllerArr}</div>
             </div>
         );
     }
@@ -134,22 +190,3 @@ ReactDOM.render(
 function getRangeRandom(low, high){
     return Math.ceil(Math.random() * (high - low) + low);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
