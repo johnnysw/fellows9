@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="tab">
+		<li>001</li>
+		<li>002</li>
+		<li>003</li>
+		<li>004</li>
+	</ul>
+
+	<script>
+		var oTab  = document.getElementById("tab");
+		var aLi = oTab.getElementsByTagName("li");
+		for(var i=0; i<aLi.length; i++){
+			/*aLi[i].index = i;
+			aLi[i].onclick = function(){
+				console.log(aLi[this.index].innerHTML);
+			};*/
+
+			(function(index){
+				aLi[index].onclick = function(){
+					console.log(index);
+				};
+			})(i);
+
+		}
+
+		function center(centerIdx){
+	        return function(){
+	            this.rearrage(centerIdx);
+	        };
+	    }
+	    center(centerIdx)();
+
+		
+		function aa(){
+			function bb(){
+				alert(123);
+			}
+			return bb;
+		}
+
+		var fn = aa();
+		fn();
+
+		
+
+
+
+		/*var a = function(){
+
+		};
+		(function(){
+
+		})();
+
+		(function(){
+
+
+
+
+		})();*/
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

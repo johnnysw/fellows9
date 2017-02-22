@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="../react-15.3.1/build/react.js"></script>
+    <script src="../react-15.3.1/build/react-dom.js"></script>
+    <script src="../react-15.3.1/browser.min.js"></script>
+
+
+    <script type="text/babel">
+        var Checkbox = React.createClass({
+            getDefaultProps : function(){
+                return {
+                        arr : []
+                };
+            },
+            handleChange : function(e){
+                this.props.handleCheck(e);
+            },
+            render : function(){
+                var msg = [];
+                this.props.arr.forEach(function(value, index){
+                    msg.push(
+                            <label key={index}>
+                                <span>{value}</span>
+                                <input type="checkbox" onChange={this.handleChange}/>
+                            </label>
+                    );
+                }.bind(this));
+                return (
+                    <div>{msg}</div>
+                );
+            }
+        });
+
+        var Count = React.createClass({
+            getInitialState : function(){
+                return {
+                    count : 0
+                };
+            },
+            handleCheck : function(e){
+                this.setState({
+                    count : e.target.checked?this.state.count + 1 : this.state.count - 1
+                });
+            },
+            render : function(){
+                var arr = ["百度", "阿里巴巴", "腾讯"];
+                return (
+                        <div>
+                            <h1>你一共选择的公司的个数为：{this.state.count}</h1>
+                            <Checkbox arr={arr} handleCheck={this.handleCheck}/>
+                        </div>
+
+                );
+            }
+        });
+
+        ReactDOM.render(<Count/>, document.getElementById("container"));
+
+
+
+    </script>
+</body>
+</html>

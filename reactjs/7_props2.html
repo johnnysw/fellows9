@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script src="react-15.3.1/build/react.js"></script>
+<script src="react-15.3.1/build/react-dom.js"></script>
+<script src="react-15.3.1/browser.min.js"></script>
+
+<script type="text/babel">
+    var SubMessagebox = React.createClass({
+        getDefaultProps : function(){
+            return {
+                arr : []
+            };
+        },
+        render : function(){
+            var msg = [];
+            this.props.arr.forEach(function(value, index, array){
+                msg.push(<h1 key={index}>{value}</h1>);
+            });
+            return (
+                    <div>{msg}</div>
+            );
+        }
+    });
+
+    var Messagebox = React.createClass({
+        render : function(){
+            var arr = [2, 3, 4];
+            return (
+                    <SubMessagebox arr={arr}/>
+            );
+        }
+    });
+
+    var Messagebox2 = React.createClass({
+        render : function(){
+            return (
+                    <SubMessagebox/>
+            );
+        }
+    });
+
+
+    ReactDOM.render(
+            <div>
+                <Messagebox/>
+                <Messagebox2/>
+            </div>,
+            document.getElementById("container")
+    );
+
+
+</script>
+
+</body>
+</html>
