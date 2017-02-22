@@ -41,7 +41,11 @@
 <body>
     <ul id="container"></ul>
     <div id="big-img"></div>
-    <script src="zepto.min.js"></script>
+    <!--<script src="zepto.min.js"></script>-->
+    <script src="jquery-1.12.4.js"></script>
+    <script src="jquery.mobile.custom.min.js"></script>
+    <!--<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>-->
+    <!--<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
     <script>
 
         $(function(){
@@ -59,21 +63,22 @@
                 $container.append(html);
             }
 
-            $('li').on('singleTap',function(){
+            $('li').on('tap',function(e){
                 $iNow = $(this).index();
                 $container.hide();
                 $bigImg.show().css({
                     background:'url(img/'+ ($iNow+1) +'.jpg) center no-repeat',
                     backgroundSize:'contain'
                 });
+                e.preventDefault();
 
             });
 
-            $bigImg.on('tap',function(){
+            $bigImg.on('tap',function(e){
                 $bigImg.hide();
                 $container.show();
-            }).on('swipeLeft',function(){
-
+                e.preventDefault();
+            }).on('swipeleft',function(){
                 $iNow++;
                 if($iNow == 24){
                     $iNow = 0;
@@ -83,7 +88,7 @@
                     backgroundSize:'contain'
                 });
 
-            }).on('swipeRight',function(){
+            }).on('swiperight',function(){
                 $iNow--;
                 if($iNow == -1){
                     $iNow = 23;
