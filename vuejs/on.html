@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    当前点击{{message}}次
+    <!--<button v-on:click="greet">Greet</button>-->
+    <!--<button v-on:click="message +=1">Greet</button>-->
+    <button v-on:click="say(bye)">Greet</button>
+    <input type="text" v-on:keyup.esc="fn">
+    <!--<input type="text" v-model='message'/>-->
+</div>
+    <script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:0,
+            bye:"hello"
+        },
+        methods:{
+            greet:function(event){
+//                this.message = 'wn'
+                //alert(event.target.tagName);
+            },
+            say:function(lang){
+//                alert(lang+event.target.tagName);
+                alert(lang);
+            },
+            fn:function(event){
+                alert(1111);
+            }
+        }
+    });
+
+
+//    fn("bye");
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+
+//        var set = new Set();
+//        set.add(3);
+//        set.add(2);
+//        set.add(3);
+
+//        var keys = set.keys();
+//        for(var key of keys){
+        //            console.log(key);
+        //        }
+//        var values = set.values();
+//
+//        for(var value of values){
+//            console.log(value);
+//        }
+
+//        var entries = set.entries();
+////
+//        for(var entrie of entries){
+//            console.log(entrie);
+//        }
+
+        var arr = ['ddd',2,3,4,5,4,3,0];
+//        var obj = {};
+//        for(var i=0;i<arr.length;i++){
+//
+//            if(!obj[arr[i]]){
+//                obj[arr[i]] = 1;
+//            }
+//        }
+//        var newArr = [];
+//        for(var p in obj){
+//            if(obj.hasOwnProperty(p)){
+//                newArr.push(p);
+//            }
+//        }
+//        console.log(newArr);
+
+
+        var set = new Set(arr);
+        var newArr = [];
+        var values = set.values();
+            for(var v of values){
+                 newArr.push(v);
+            }
+        console.log(newArr);
+        
+
+    </script>
+</body>
+</html>

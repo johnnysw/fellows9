@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="aa">
+    <my-component></my-component>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    //定义组件
+    Vue.component('my-component', {
+        template: '<div>A custom{{msg}} component!</div>',
+        data:function(){
+            return {
+                msg:'aaa'
+            }
+        }
+    });
+
+//    var vm = new Vue({
+//        el:'#aa',
+//        data:{
+//            msg:"11111"
+//        },
+//        components: {
+//            'my-component': {
+//                template: '<div>A custom {{myComponentMy}}component!</div>',
+//                props: ['myComponentMy']
+//            }
+//        }
+//    });
+
+
+
+</script>
+</body>
+</html>

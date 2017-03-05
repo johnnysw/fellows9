@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:style="objStyle"></div>
+        <button v-on:click="fn"></button>
+    </div>
+<script src="vue.js"></script>
+<script>
+//        var flag=true;
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                objStyle:{
+                    width:'200px',
+                    height:'100px',
+                    background:'red',
+                    display:'block'
+                },
+                flag:true
+            },
+            methods:{
+                fn:function(){
+                    if(flag){
+                        this.objStyle.display = 'none';
+                    }else{
+                        this.objStyle.display = 'block';
+                    }
+                    flag = !flag;
+                }
+            }
+
+
+        });
+
+
+</script>
+</body>
+</html>

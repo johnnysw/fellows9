@@ -1,0 +1,135 @@
+@import 'reset';
+@charset "UTF-8";
+//这是我的css
+/*这是我的css*/
+
+$color:#888;
+$font:30px;
+$font:18px !default;
+$bg:background;
+body{
+	font-family:$ft;
+	width:$width;
+	#{$bg}: $color;
+	// font:12px/#{$font} ;
+	background: url('images/#{$bg}.png');
+
+	div{
+		color:#fff;
+		border:2px solid #000;
+		a{
+			color:#f00;
+			&:hover{
+				color:green;
+			}
+		}
+		
+
+		b{
+			font-size:16px;
+		}
+	}
+}
+.#{$bg}{
+	font-size:$font;
+	background: $color;
+	padding:{
+		top:10px;
+		bottom: 20px;
+	}
+
+	// padding:10px 0 20px 0;
+}
+
+@mixin border($col1:#333){
+// @mixin border($col1,$col2){
+
+	border:1px solid $col1;
+	-webkit-box-shadow:2px 2px 2px 2px #eee;
+	-moz-box-shadow:2px 2px 2px 2px #eee;
+	-o-box-shadow:2px 2px 2px 2px #eee;
+	-ms-box-shadow:2px 2px 2px 2px #eee;
+	box-shadow:2px 2px 2px 2px #eee;
+}
+.aa{
+	width: 200px;
+	height: 200px;
+	@include border(#000);
+}
+.bb{
+	width: 100px;
+	height:50px;
+	@include border();
+
+}
+
+.cc{
+	color:red;
+	@extend .aa;
+}
+.dd{
+	@extend %ph;
+}
+.ee{
+	@extend %ph;
+	width:200px;
+}
+
+%ph{
+	width:20px;
+	height: 20px;
+}
+
+
+@function add($x,$y){
+	@if ($x == 0) {
+		$x:50px;
+	}
+	@return $x + $y;
+}
+
+.ff{
+	width:add(0,30);
+}
+
+
+@mixin arrow($color,$dir){
+	width:0px;
+	height:0px;
+	border-width:50px;
+	border-style:solid;
+	@if($dir == left){
+		border-color:transparent $color transparent transparent;	
+	}
+	@if($dir == right){
+		border-color:transparent transparent transparent $color;	
+	}
+	@if($dir == top){
+		border-color:transparent transparent $color transparent;	
+	}
+	@if($dir == bottom){
+		border-color:$color transparent transparent transparent;	
+	}
+}
+#arrow{
+	@include arrow(#eee,top);
+}
+
+
+$list:error right warning;
+
+@each $i in $list {
+	.icon_#{$i}{
+		background: url('images/#{$i}.png');
+	}
+	/* .icon_right{
+		background: url('images/right.png');
+	} */
+}
+
+
+
+
+
+
+

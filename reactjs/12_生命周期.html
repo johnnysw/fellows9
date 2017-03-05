@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+
+<script src="react-15.3.1/build/react.js"></script>
+<script src="react-15.3.1/build/react-dom.js"></script>
+<script src="react-15.3.1/browser.min.js"></script>
+
+<script type="text/babel">
+    var Counter = React.createClass({
+
+        getInitialState : function(){
+            console.log("getInitialState");
+            return {
+                count : 0
+            };
+        },
+        handleClick : function(){
+            ReactDOM.unmountComponentAtNode(document.getElementById('container'));
+
+        },
+        componentWillMount : function () {
+            console.log("componentWillMount");
+        },
+        componentDidMount : function () {
+            console.log("componentDidMount");
+            this.timer = setInterval(function(){
+                this.setState({
+                    count : this.state.count + 1
+                });
+            }.bind(this), 1000);
+        },
+        shouldComponentUpdate : function(){
+            if(this.state.count > 10){
+                return false;
+            }
+            return true;
+        },
+        componentWillUnmount : function(){
+            clearInterval(this.timer);
+        },
+        render : function(){
+            console.log("render");
+            return (
+                    <div>
+                        <button onClick={this.handleClick}>销毁</button>
+                        <h2>{this.state.count}</h2>
+                    </div>
+            );
+        },
+        getDefaultProps : function(){
+            console.log("getDefaultProps");
+        }
+    });
+
+    ReactDOM.render(
+            <Counter/>,
+            document.getElementById("container")
+    );
+
+</script>
+
+</body>
+</html>

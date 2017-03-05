@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<p v-bind:class="{red:isRed,blue:isBlue}">22222222222</p>-->
+    <!--<p v-bind:class="objClass">22222222222</p>-->
+    <!--<p v-bind:style="{color:colorStyle,'font-size':sizeStyle}">22222222222</p>-->
+    <!--<p style="color:red">22222222222</p>-->
+    <!--<p v-bind:style="objstyle">22222222222</p>-->
+    <p v-bind:style="[baseStyles, overridingStyles]">2222222222</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                colorStyle:'red',
+                sizeStyle:'40px',
+                objstyle:{
+                    color:'red',
+                    'font-size':'40px'
+                },
+                baseStyles:{
+                    color:'red'
+                },
+                overridingStyles:{
+                    'font-size':'40px'
+                }
+            }
+        });
+
+
+
+</script>
+</body>
+</html>
