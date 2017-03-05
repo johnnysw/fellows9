@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">click me</button>
+
+    <ul id="ul1">
+        <li>item 1</li>
+        <li class="aa">item 2</li>
+        <li>item 3</li>
+        <li class="aa">item 4</li>
+        <li>item 5</li>
+    </ul>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $('#btn').on('click', function () {
+                $(this).css('background', 'red');
+            });
+        });
+
+        $(function () {
+            console.log( $('.aa').siblings() );
+        });
+    </script>
+</body>
+</html>

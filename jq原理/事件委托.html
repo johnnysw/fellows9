@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul1">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ul>
+
+<script>
+    var oUl1 = document.getElementById('ul1');
+    oUl1.onclick = function (e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if(target.tagName == 'LI'){
+            alert(target.innerHTML);
+      }
+    };
+
+    $('#ul1').on('click', 'li', function (e) {
+        alert(this.innerHTML);
+    });
+</script>
+</body>
+</html>

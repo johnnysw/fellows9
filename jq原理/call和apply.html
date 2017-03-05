@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //call, apply, bind(es5)
+
+    function aa(name, age) {
+        console.log(this);
+//        console.log(name + ' ' + age);
+    }
+
+    var obj = {
+        name: 'lisi'
+    };
+
+//    aa.call(obj, 'wangwu', 34);
+//    aa.apply(obj, ['wangwu', 34]);//   xxx.apply(obj, arguments);
+
+    aa.bind(obj)('lisi', 23);
+
+</script>
+</body>
+</html>

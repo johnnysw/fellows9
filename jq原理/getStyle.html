@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 300px;
+            background: #ff0000;
+            border: 5px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">haha</div>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        //console.log(oDiv1.offsetWidth);
+//        console.log(oDiv1.currentStyle.width);
+        console.log(getStyle(oDiv1, 'width'));
+
+
+
+        function getStyle(elem, prop) {
+            if(elem.currentStyle){
+                return elem.currentStyle[prop];
+            }else if(getComputedStyle){
+                return getComputedStyle(elem, false)[prop];
+            }else{
+                return elem.style[prop];
+            }
+        }
+    </script>
+</body>
+</html>

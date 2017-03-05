@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹层组件</title>
+    <style>
+        .dialog-mask{
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            opacity: 0.5;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .dialog-wrapper{
+            width: 500px;
+            height: 400px;
+            background: #ffffff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -200px;
+        }
+        .dialog-header{
+            height: 30px;
+            line-height: 30px;
+            background: #ccc;
+        }
+        .dialog-footer{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            background: #eee;
+        }
+        .dialog-close-btn{
+            float: right;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">打开窗口</button>
+    <!--<div class="dialog-mask"></div>
+    <div class="dialog-wrapper">
+        <div class="dialog-header">
+            这是一个窗口
+            <span class="dialog-close-btn">X</span>
+        </div>
+        <div class="dialog-body">
+            hehe
+        </div>
+        <div class="dialog-footer">
+            <button class="btn-ok">确定</button>
+        </div>
+    </div>-->
+
+    <script src="require.js" data-main="main"></script>
+</body>
+</html>

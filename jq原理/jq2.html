@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg{
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>hehe</h1>
+    <button id="btn">click me</button>
+    <ul id="ul1">
+        <li class="bb">item 1</li>
+        <li class="aa">item 2</li>
+        <li>item 3</li>
+        <li class="aa">item 4</li>
+        <li>item 5</li>
+    </ul>
+    <script src="myjquery.js"></script>
+    <script>
+        $(function(){
+            //$('li').addClass('bg').width(300);
+
+
+
+//            console.log($('li').width());
+
+            $('#btn').on('click', function () {
+                alert(1234567);
+            });
+
+
+            $('#ul1').on('click', '.aa', function () {
+
+                alert(this.innerHTML);
+            });
+
+//            console.log( $('.aa').siblings('.bb') );
+
+            /*$('.aa').css('background', 'red');
+            console.log($('.aa').css('background'));*/
+            $('.aa').css({
+                'background-color': 'red',
+                width: '300px'
+            });
+        });
+
+
+    </script>
+</body>
+</html>
