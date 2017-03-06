@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //sessionStorage.name = 'lisi';
+    localStorage.name = 'lisi';
+    localStorage.age = 23;
+    localStorage.setItem('sex', '男');
+
+    /*var obj = {
+        name: 'wangwu',
+        age: 26
+    };
+    obj.addTime = new Date().getTime();
+    localStorage.user = JSON.stringify(obj);*/
+
+    var user = JSON.parse(localStorage.user);
+
+    var now = new Date();
+
+
+
+    console.log(new Date(now.getTime() - user.addTime));
+
+
+
+</script>
+</body>
+</html>

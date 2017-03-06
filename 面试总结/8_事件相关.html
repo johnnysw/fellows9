@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click me</button>
+
+<script>
+
+    var oBtn = document.getElementById('btn');
+
+    var fn1 = function () {
+        alert(1111);
+    };
+
+    var fn2 = function () {
+        alert(2222);
+    };
+
+
+    /*oBtn.addEventListener('click', fn, false);
+
+    oBtn.removeEventListener('click', fn, false);*/
+
+
+    addEvent(oBtn, 'click', fn1);
+    addEvent(oBtn, 'click', fn2);
+
+
+    removeEvent(oBtn, 'click', fn1);
+    removeEvent(oBtn, 'click', fn2);
+    /*addEvent(oBtn, 'click', function () {
+        alert(222);
+    });*/
+
+    function addEvent(elem, type, handler){
+        if(elem.addEventListener){
+            elem.addEventListener(type, handler, false);
+        }else if(elem.attachEvent){
+            elem[type+handler] = function () {
+                handler.call(elem);
+            };
+            elem.attachEvent('on'+type, elem[type+handler]);
+        }else{
+            elem['on'+type] = handler;
+        }
+    }
+
+    function removeEvent(elem, type, handler) {
+        if(elem.removeEventListener){
+            elem.removeEventListener(type, handler, false);
+        }else if(elem.detachEvent){
+            elem.detachEvent('on'+type, elem[type+handler]);
+        }else{
+            elem['on'+type] = null;
+        }
+    }
+</script>
+</body>
+</html>
