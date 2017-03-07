@@ -1,0 +1,76 @@
+跨域：同源策略的限制
+
+我知道有三种方式：
+第一种： jsonp（json+padding）：实现原理是利用script标签的src属性可以跨域加载别的域中的文件来实现的
+假设有一个a.com和b.com，现在a.com想访问b.com，在a.com中的一个网页中加入下面的代码：
+<script>
+    function aaa(data){
+        //对data进行相应的操作
+    }
+</script>
+<script src="http://www.b.com/test.php?name=lisi&callback=aaa"></script>
+
+在b.com中的test.php中可以接收传递过来的参加name还有callback，然后执行：
+b.com中执行echo 'callback(要回传给a.com的数据)'
+
+第二种： iframe  a域里嵌入b域的页面  b里面在嵌入a的页面 在a的这个页面中通过top的方式访问方法  实现跨域
+a发送请求到b  b可以查询数据库等操作  然后
+
+只是说法不一样  a里面有一个方法
+ayingyong  b数据
+
+在a里面定义一个方法  然后在a的页面中嵌入b的页面通过ifream   然后在b里面在嵌入a的一个页面通过ifream
+
+
+这样就可以通过top调用到a里面事先定义好的方法 这个方法可以传参数啊 参数就是b得到的数据
+
+b里面有一个方法 就是这样
+查数据库
+
+第三种： 服务器代理：因为服务器端程序是不存在跨域问题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

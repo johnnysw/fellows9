@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click</button>
+
+<script>
+    /*$.get("xx.php", {
+
+     }, function(res){
+
+     });
+     $.post();*/
+
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function(){
+        /* 1、创建对象 */
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        /* 2、发送请求 */
+        /*xmlhttp.open("GET","sever.php?username=zhangsan",true);
+         xmlhttp.send();*/
+        xmlhttp.open("POST","sever.php",true);
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send("username=zhangsan");
+
+        /* 4、状态 */
+        xmlhttp.onreadystatechange=function(){
+            // console.log(xmlhttp.readyState);
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                /*3、响应 */
+                console.log(xmlhttp.responseText);
+
+            }
+        }
+
+    };
+
+
+
+
+</script>
+</body>
+</html>

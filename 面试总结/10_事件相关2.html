@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+
+    <button type="button" id="btn">click</button>
+    <script>
+        /*window.onscroll = function(){
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            console.log(scrollTop);
+        };
+        window.oncontextmenu = function(){
+            return false;
+        };*/
+        var oBtn = document.getElementById("btn");
+//        oBtn.onclick = function(){alert(1);};
+//        oBtn.onclick = function(){alert(2);};
+
+        oBtn.addEventListener("click", function(){
+            alert(1);
+        }, false);
+        oBtn.addEventListener("click", function(){
+            alert(2);
+        }, false);
+
+
+        // call apply bind
+        function aa(args, args2){
+            console.log(this);
+            console.log(args);
+        }
+        var obj = {
+            name : "zhangsna",
+            age : 18
+        };
+//        aa.call(obj, 123, 456);
+//        aa.apply(obj, [123, 456]);
+        aa.bind(obj, 123, 456)();
+
+
+
+
+    </script>
+</body>
+</html>

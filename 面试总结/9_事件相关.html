@@ -3,13 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        window.onload = function(){
+
+        };
+        var oImg = new Image();
+        oImg.onload = function(){
+
+        };
+        oImg.src = "xx.jpg";
+
+
+
+    </script>
 </head>
 <body>
 <button id="btn">click me</button>
 
 <script>
 
+    /*
+    *
+    * 1、事件源
+    * 2、事件处理函数
+    * 3、事件对象  e || window.event
+    *
+    *   e.clientX / e.clientY
+    *
+    *
+    * */
+
     var oBtn = document.getElementById('btn');
+    
+    /*oBtn.onclick = function (e) {
+        var target = e.target || window.event.srcElement;
+    };*/
 
     var fn1 = function () {
         alert(1111);
