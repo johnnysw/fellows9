@@ -1,0 +1,24 @@
+js继承机制
+
+我知道一种基于原型的继承机制，举个例子来说：
+假设有一个ClassA和ClassB，ClassB想继承ClassA
+首先要在ClassA的构造函数里定义属性，在ClassA的原型里定义方法：
+<!--
+function ClassA() {
+    this.color = sColor;属性 构造函数中
+}
+
+ClassA.prototype.sayColor = function () {方法
+    alert(this.color);
+};
+-->
+然后在ClassB的构造函数中使用ClassA.call(this)来继承ClassA中的属性：
+<!--
+function ClassB() {
+    ClassA.call(this);  call可以指向当前具体的实例化对象
+}
+-->
+再用ClassB.prototype等于ClassA的一个实例对象来继承ClassA中的方法：
+<!--
+ClassB.prototype = new ClassA();
+-->
